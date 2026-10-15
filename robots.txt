@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /admin.html
-Sitemap: https://tomorang.brandnaut.xyz/sitemap.xml
+Sitemap: https://brandnaut-dev.github.io/tomorang/sitemap.xml
