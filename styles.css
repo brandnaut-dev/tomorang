@@ -157,7 +157,7 @@ body.motion .jesse:hover .spr,body.motion .jesse:active .spr{animation:tmrBob .8
 @media (max-width:767px){.cta1{padding:40px 20px}.cta1-left{gap:16px;align-items:flex-start}.mailbox{width:60px;height:60px}.cta1 .btn{width:100%}}
 
 /* 05 경험과 미션 */
-.album-grid{padding:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.album-grid{padding:20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px 20px}
 .album-grid figure{margin:0;display:flex;flex-direction:column;gap:10px}
 .album-grid .slot{aspect-ratio:4/3}
 .album-grid .slot span+span{opacity:.8}
@@ -178,7 +178,7 @@ figcaption{font-size:15px;font-weight:700}
 .follow{display:flex;align-items:flex-start;gap:16px;background:var(--ink);color:#fff;padding:22px 24px}
 .follow i{flex:none;width:10px;height:10px;margin-top:8px;background:var(--lime);display:block}
 .follow p{font-size:17px;line-height:1.7;text-wrap:pretty}
-@media (max-width:767px){.album-grid{padding:16px;gap:16px}.missions{gap:22px}.mission{min-height:0}.follow{padding:18px 18px}.follow p{font-size:16px}}
+@media (max-width:767px){.album-grid{padding:16px;gap:18px 14px;grid-template-columns:repeat(2,1fr)}.ph-cat{display:block;margin:0 0 2px}.missions{gap:22px}.mission{min-height:0}.follow{padding:18px 18px}.follow p{font-size:16px}}
 
 /* 06 두 번째 신청 */
 .cta2{background:var(--ink);color:#fff;padding:clamp(56px,8vw,88px) 20px}
@@ -206,8 +206,15 @@ figcaption{font-size:15px;font-weight:700}
 .profile .langbox{background:var(--bg);padding:14px 16px;font-size:15px;line-height:1.65}
 .jalbum{padding:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
 .jalbum figure{margin:0;display:flex;flex-direction:column;gap:10px}
-.jalbum .slot{aspect-ratio:3/4}
-@media (max-width:767px){.profile{padding:18px}.profile-top{flex-direction:column;align-items:flex-start;gap:14px}.jesse{width:96px;height:96px}.jalbum{grid-template-columns:1fr 1fr;gap:12px;padding:16px}}
+.jalbum .ph-win{aspect-ratio:4/3}
+/* 실제 사진: 픽셀 창 안에 원본 질감 그대로 */
+.ph{margin:0;display:flex;flex-direction:column;gap:10px}
+.ph-win{aspect-ratio:4/3;background:#EEF7FF;box-shadow:0 0 0 2px var(--ink),4px 4px 0 var(--ink);margin:0 4px 4px 0;overflow:hidden}
+.ph-win img{display:block;width:100%;height:100%;object-fit:cover}
+.ph-cat{display:inline-block;font-family:var(--fm);font-size:11px;background:var(--bg);padding:2px 6px;margin-right:8px;vertical-align:middle;font-weight:400}
+.flag{display:inline-block;width:21px;height:14px;vertical-align:-2px;margin-right:7px;box-shadow:0 0 0 1px var(--ink);flex:none}
+.langs .flag{margin-right:6px}
+@media (max-width:767px){.profile{padding:18px}.profile-top{flex-direction:column;align-items:flex-start;gap:14px}.jesse{width:96px;height:96px}.jalbum{grid-template-columns:1fr;gap:14px;padding:16px}}
 
 /* 08 FAQ */
 .faqsec{background:var(--sky);padding:clamp(56px,8vw,88px) 20px 0;position:relative;overflow:hidden}
@@ -231,15 +238,17 @@ figcaption{font-size:15px;font-weight:700}
 @media (max-width:767px){.faq-q{padding:16px 16px;font-size:16px}.faq-a{padding:0 16px 18px 40px;font-size:15px}.fin p{font-size:16px}}
 
 /* 푸터 */
-footer{background:var(--ink);color:var(--bg);padding:28px 24px}
-footer .wrap{display:flex;flex-direction:column;gap:14px;font-size:13px;line-height:1.7}
-.foot-top{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap}
-.foot-top b{font-family:var(--fp);font-weight:400;color:#fff;font-size:15px}
-.foot-biz{display:flex;flex-wrap:wrap;gap:4px 20px}
-.foot-note{color:var(--sky);font-size:12px}
-.lnk{min-height:44px;padding:8px 14px;border:0;cursor:pointer;background:var(--bg);color:var(--ink);font:inherit;font-size:13px;font-weight:700;box-shadow:0 -2px 0 #fff,0 2px 0 #fff,-2px 0 0 #fff,2px 0 0 #fff;margin:2px}
-.lnk:hover{background:var(--pink)}
-footer a{color:#fff}
+footer{background:var(--ink);color:var(--bg);padding:36px 24px 32px}
+footer .wrap{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;font-size:13px;line-height:1.8}
+.foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 12px;margin-bottom:6px}
+.lnk{min-height:40px;padding:8px 14px;border:0;cursor:pointer;background:var(--bg);color:var(--ink);font:inherit;font-size:13px;font-weight:700;box-shadow:0 -2px 0 #fff,0 2px 0 #fff,-2px 0 0 #fff,2px 0 0 #fff;margin:2px;text-decoration:none;display:inline-flex;align-items:center}
+.lnk:hover{background:var(--pink);color:var(--ink)}
+.foot-brand{font-family:var(--fp);font-weight:400;color:#fff;font-size:15px;margin-top:6px}
+.foot-biz{margin:0;color:var(--sky)}
+.foot-biz .sep{margin:0 8px;opacity:.5}
+.foot-copy{margin:4px 0 0;color:var(--sky);font-size:12px}
+footer a{color:#fff;text-decoration:none}footer a:hover{color:var(--pink)}
+@media (max-width:767px){footer{padding:30px 20px 28px}.foot-biz{display:flex;flex-direction:column;gap:2px;align-items:center}.foot-biz .sep{display:none}}
 
 /* 모달 (노트북: 중앙 / 모바일: 전체 화면) */
 .overlay{position:fixed;inset:0;z-index:50;background:rgba(12,77,120,.55);display:flex;align-items:center;justify-content:center;padding:24px}

@@ -29,7 +29,16 @@ window.TOMORANG_CONTENT = (function () {
       expTitle: '내가 아는 동네를 알려주고,\n서로의 일상 언어를 배워요.',
       expBody: '이 밥집을 좋아하는 이유부터 주문할 때 쓰는 표현까지. 한국 학생은 서울의 일상과 한국어를, 일본 학생은 같은 상황에서 쓰는 일본어를 나눠요. 함께 보고 먹는 경험이 서로의 언어를 배우는 시간이 돼요.',
       photoPending: '동네 사진 준비 중',
-      photos: [{ label: '동네 공간', hint: '문화 공간 · 골목' }, { label: '밥집과 음식', hint: '학생들이 자주 가는 밥집' }, { label: '함께 경험하는 장면', hint: '카페 · 산책' }],
+      photoCats: { place: '동네 공간', food: '밥집과 음식', together: '함께 경험하는 장면' },
+      photos: [
+        { file: 'jamsil-baseball.jpg', cat: 'place', label: '잠실 야구장, 주말 직관', alt: '잠실 야구장 관중석에서 본 경기장과 응원하는 사람들' },
+        { file: 'cheonggyecheon.jpg', cat: 'together', label: '청계천 산책', alt: '해 질 녘 청계천 산책로와 징검다리를 건너는 사람들' },
+        { file: 'samgyeopsal.jpg', cat: 'food', label: '동네 밥집, 삼겹살과 김치', alt: '불판 위 삼겹살과 김치, 파절이가 놓인 식탁' },
+        { file: 'ttukseom-cafe.jpg', cat: 'together', label: '뚝섬 한강 카페', alt: '한강과 다리가 보이는 뚝섬 카페 창가의 커피' },
+        { file: 'ttukseom-sunset.jpg', cat: 'place', label: '뚝섬 한강공원 노을', alt: '노을 진 한강과 다리 아래 풍경' },
+        { file: 'namsan-view.jpg', cat: 'place', label: '남산타워가 보이는 전망', alt: '돌조각 너머로 보이는 남산과 N서울타워' },
+        { file: 'namsan-tower-hangangdaero.jpg', cat: 'place', label: '한강대로에서 본 남산타워', alt: '저녁 하늘의 N서울타워와 한강대로 신호등' }
+      ],
       missionTitle: '대화 미션 카드', missionNote: '모두 완료해야 하는 과제가 아니라, 대화가 필요할 때 골라 쓰는 카드예요.',
       open: '펼치기', fold: '접기',
       follow: '서울에서의 만남이 끝나도, 대화는 이어질 수 있어요. 서로 원하면 연락을 이어가고, 이후에도 교류할 수 있는 온라인 대화와 재회 모임을 준비하고 있어요.',
@@ -40,7 +49,8 @@ window.TOMORANG_CONTENT = (function () {
       jSchoolK: '학교', jSchool: '서울 소재 대학 4학년 재학', jSeoulK: '서울', jSeoul: '서울 여행 7년', jLangK: '언어', jLang: '한국어 · 영어 / 일본어 공부 중',
       jIntro: '안녕하세요, Jesse예요.\n서울에 있는 대학교 4학년에 재학하며 AI 서비스 창업을 하고 있어요. 서울 곳곳을 여행하듯 다닌 지 7년이 됐어요.\n평소에는 일을 많이 하고, 책 읽을 곳을 찾아다니거나 서울의 여러 동네를 돌아봐요.\n특히 남영역 주변과 용산을 좋아해요. 지금의 서울다운 모습과 오래된 도시의 흔적을 함께 만날 수 있거든요. 제가 좋아하게 된 장소와 그 이유를 함께 나누고 싶어요.',
       jLangBody: '한국어와 영어로 대화할 수 있어요. 일본어는 공부 중이에요. 서로 아는 표현을 알려주고, 말이 막힐 때는 번역기도 함께 사용해요.',
-      jAlbum: 'JESSE가 직접 찍은 동네', jPhotoPending: 'Jesse 촬영 사진 준비 중', jPhoto1: '남영역 주변', jPhoto2: '용산',
+      jAlbum: 'JESSE가 직접 찍은 동네', jPhotoPending: 'Jesse 촬영 사진 준비 중',
+      jPhotos: [{ file: 'jesse-lp-cafe.jpg', label: '동네 LP 카페', alt: '동네 LP 카페의 턴테이블' }, { file: 'jesse-yongsan-cherry.jpg', label: '용산 벚꽃', alt: '용산 거리의 활짝 핀 벚꽃' }],
       faqTitle: '만나기 전에 궁금한 것들',
       faqs: [
         { q: '일본어나 한국어를 잘해야 하나요?', a: '유창하지 않아도 괜찮아요. 아는 표현으로 이야기하고, 말이 막히면 번역기를 사용해요. 미션 카드도 대화를 시작하는 데 도움이 돼요. Jesse는 한국어와 영어로 대화할 수 있고, 일본어는 공부 중이에요.' },
@@ -49,9 +59,18 @@ window.TOMORANG_CONTENT = (function () {
       ],
       finTitle: '다음 만남의 소식을 받아보세요.',
       finBody: '관심사와 참여하고 싶은 주말을 알려주세요. 모집 일정이 정해지면 이메일로 안내할게요.',
-      policyLink: '개인정보 처리방침',
-      bizName: '상호: 펄스픽시아(PulsePixia)', bizCeo: '대표자: 정준수', bizNo: '사업자등록번호: 361-43-01196', bizTel: '연락처:',
-      bizNote: '토모랑은 펄스픽시아가 운영하는 교류 서비스이며, 학교의 공식 프로그램이 아닙니다.',
+      policyLink: '개인정보처리방침', termsLink: '서비스 이용약관', supportLink: '고객센터', faqLink: 'FAQ',
+      bizLine1: ['펄스픽시아', '대표자: 정준수', '사업자등록번호: 361-43-01196', '통신판매업신고번호: 2025-서울광진-1169'],
+      bizLine2: ['서울특별시 광진구 능동로 245 (군자동) 3층 공유오피스 6호실', '전화: 010-2735-4233', '이메일: team@onpi.kr'],
+      copyright: '© 2026 토모랑(펄스픽시아). All rights reserved.',
+      terms: [
+        { h: '1. 서비스 내용', b: '토모랑은 펄스픽시아가 운영하는 한국 대학생과 일본 학생의 서울 로컬 교류 서비스입니다. 현재 페이지의 신청은 첫 모집 소식을 이메일로 받기 위한 알림 신청이며, 참가·매칭·예약이 확정되는 것은 아닙니다.' },
+        { h: '2. 참가 신청과 비용', b: '실제 참가 신청은 모집 일정과 참여 방법이 공개된 뒤 별도로 받습니다. 초기 교류 연결과 안내는 무료로 진행할 예정이며, 식사·교통·입장료 등 개인 이용 비용은 각자 부담합니다. 코스별 예상 비용은 참가 결정 전에 안내합니다.' },
+        { h: '3. 이용자의 책임', b: '만남 중 발생하는 개인 행동과 안전은 참가자 본인이 책임지며, 상대방을 존중하고 불쾌감을 주는 언행을 하지 않습니다. 운영자는 문제가 확인된 참가자의 이용을 제한할 수 있습니다.' },
+        { h: '4. 운영자의 책임 범위', b: '운영자는 교류 기회를 연결하고 안내하는 역할을 하며, 참가자 간 개인적인 약속·거래·연락에서 발생한 분쟁에는 직접 책임지지 않습니다. 다만 신고가 접수되면 확인 후 필요한 조치를 합니다.' },
+        { h: '5. 알림 수신 철회', b: '모집 알림은 언제든지 아래 연락처로 요청해 철회할 수 있으며, 요청 즉시 신청 정보를 파기합니다.' },
+        { h: '6. 문의', b: '펄스픽시아 · team@onpi.kr · 010-2735-4233' }
+      ],
       policy: [
         { h: '1. 운영자', b: '펄스픽시아(PulsePixia) · 대표자 정준수 · 사업자등록번호 361-43-01196' },
         { h: '2. 수집 항목', b: '필수: 이메일, 참여 유형 / 선택: 관심사, 희망 주말 및 월, 일정 미정 여부, 선택한 화면 언어' },
@@ -60,7 +79,7 @@ window.TOMORANG_CONTENT = (function () {
         { h: '5. 제3자 제공', b: '수집한 정보를 제3자에게 제공하지 않습니다.' },
         { h: '6. 동의 거부 권리', b: '개인정보 수집에 동의하지 않을 수 있으며, 이 경우 모집 소식 알림을 받을 수 없습니다.' },
         { h: '7. 열람 · 정정 · 삭제 요청', b: '아래 담당자에게 연락하면 지체 없이 처리합니다.' },
-        { h: '8. 개인정보 보호 담당자', b: '정준수 · 010-2735-4233' }
+        { h: '8. 개인정보 보호 담당자', b: '정준수 · team@onpi.kr · 010-2735-4233' }
       ],
       mTitle: '첫 모집 소식 받기', close: '닫기',
       fEmail: '이메일', fType: '참여 유형',
@@ -71,7 +90,7 @@ window.TOMORANG_CONTENT = (function () {
       fWeekendsHelp: '참여하고 싶은 주말을 알려주세요. 희망 일정 조사이며, 실제 운영 일정이나 예약이 확정되는 것은 아니에요. 월을 누르면 주말 날짜가 열려요.',
       undecided: '아직 일정 미정',
       fConsent: '개인정보 수집·이용 안내를 확인했고 동의합니다. (필수)',
-      fConsentDetail: '수집 항목: 이메일, 참여 유형, 관심사, 희망 주말\n이용 목적: 모집 소식 안내\n보유 기간: 첫 모집 안내 후 파기 (최대 신청일로부터 3개월)\n운영자: 펄스픽시아 · 담당자 정준수 010-2735-4233',
+      fConsentDetail: '수집 항목: 이메일, 참여 유형, 관심사, 희망 주말\n이용 목적: 모집 소식 안내\n보유 기간: 첫 모집 안내 후 파기 (최대 신청일로부터 3개월)\n운영자: 펄스픽시아 · 담당자 정준수 team@onpi.kr',
       errEmail: '이메일 주소를 정확히 입력해 주세요.', errType: '참여 유형을 선택해 주세요.', errConsent: '개인정보 수집·이용에 동의해야 신청할 수 있어요.',
       submit: '첫 모집 소식 받기', saving: '저장 중…', retry: '다시 시도하기',
       ncTitle: '아직 저장되지 않았어요', ncBody: '신청 저장 서버(DB)가 아직 연결되지 않았어요. 연결된 뒤에 실제로 접수됩니다. 입력한 내용은 그대로 남아 있어요.',
@@ -106,7 +125,16 @@ window.TOMORANG_CONTENT = (function () {
       expTitle: '地元の暮らしを知る。\nその場で使う言葉を、教え合う。',
       expBody: 'なぜこのお店が好きなのか、注文するときは何と言うのか。韓国の学生から街の日常と韓国語を教わりながら、あなたは同じ場面で使う日本語を伝える。一緒に歩いて食べながら、お互いの言葉を学びます。',
       photoPending: '街の写真 準備中',
-      photos: [{ label: '街の空間', hint: '文化スポット · 路地' }, { label: 'ごはん屋さんと料理', hint: '学生がよく行くお店' }, { label: '一緒に過ごす場面', hint: 'カフェ · 散歩' }],
+      photoCats: { place: '街の空間', food: 'ごはん屋さんと料理', together: '一緒に過ごす場面' },
+      photos: [
+        { file: 'jamsil-baseball.jpg', cat: 'place', label: '蚕室野球場、週末の観戦', alt: '蚕室野球場の観客席から見た球場と応援する人々' },
+        { file: 'cheonggyecheon.jpg', cat: 'together', label: '清渓川の散歩', alt: '夕暮れの清渓川の遊歩道と飛び石を渡る人々' },
+        { file: 'samgyeopsal.jpg', cat: 'food', label: '町のごはん屋さん、サムギョプサルとキムチ', alt: '鉄板の上のサムギョプサルとキムチ、ネギの和え物' },
+        { file: 'ttukseom-cafe.jpg', cat: 'together', label: 'トゥクソム、漢江のカフェ', alt: '漢江と橋が見えるトゥクソムのカフェの窓辺のコーヒー' },
+        { file: 'ttukseom-sunset.jpg', cat: 'place', label: 'トゥクソム漢江公園の夕焼け', alt: '夕焼けの漢江と橋の下の風景' },
+        { file: 'namsan-view.jpg', cat: 'place', label: '南山タワーが見える展望', alt: '石像の向こうに見える南山とNソウルタワー' },
+        { file: 'namsan-tower-hangangdaero.jpg', cat: 'place', label: '漢江大路から見た南山タワー', alt: '夕方の空のNソウルタワーと漢江大路の信号機' }
+      ],
       missionTitle: '会話ミッションカード', missionNote: '全部こなす課題ではなく、会話のきっかけが欲しいときに選んで使うカードです。',
       open: 'ひらく', fold: 'とじる',
       follow: 'ソウルで会ったあとも、交流の続きを。お互いが希望すれば連絡を取り合えます。運営によるオンライン交流や、また会える機会も準備中です。',
@@ -117,7 +145,8 @@ window.TOMORANG_CONTENT = (function () {
       jSchoolK: '学校', jSchool: 'ソウルの大学 4年生', jSeoulK: 'ソウル', jSeoul: 'ソウル旅 7年', jLangK: '言語', jLang: '韓国語 · 英語 / 日本語は勉強中',
       jIntro: 'はじめまして、Jesseです。\nソウルの大学に通う4年生で、AIサービスの事業に取り組んでいます。ソウルのあちこちを旅するように歩いて7年になります。\n普段は仕事をしたり、本を読む場所を探したり、ソウルのいろいろな街を歩いたりしています。\n特に好きなのは、南営駅周辺と龍山。今のソウルらしさと、昔からの街の面影が一緒に感じられるからです。お気に入りの場所と、その場所を好きになった理由を一緒にお伝えします。',
       jLangBody: '韓国語と英語で会話できます。日本語は勉強中です。お互いに知っている表現を教え合い、必要なときは翻訳アプリも使いましょう。',
-      jAlbum: 'JESSEが撮った街', jPhotoPending: 'Jesse撮影の写真 準備中', jPhoto1: '南営駅周辺', jPhoto2: '龍山',
+      jAlbum: 'JESSEが撮った街', jPhotoPending: 'Jesse撮影の写真 準備中',
+      jPhotos: [{ file: 'jesse-lp-cafe.jpg', label: '町のLPカフェ', alt: '町のLPカフェのターンテーブル' }, { file: 'jesse-yongsan-cherry.jpg', label: '龍山の桜', alt: '龍山の通りに咲く満開の桜' }],
       faqTitle: '参加する前に、知っておきたいこと',
       faqs: [
         { q: '韓国語が話せなくても参加できますか？', a: '流暢に話せなくても大丈夫です。知っている言葉や翻訳アプリを使いながら交流しましょう。会話のきっかけになるミッションカードも用意します。Jesseは韓国語と英語で会話でき、日本語は勉強中です。' },
@@ -126,9 +155,18 @@ window.TOMORANG_CONTENT = (function () {
       ],
       finTitle: '次の出会いのお知らせを受け取りませんか。',
       finBody: '興味のあることと、参加を希望する週末を教えてください。募集日程が決まり次第、メールでご案内します。',
-      policyLink: '個人情報の取り扱い',
-      bizName: '商号：PulsePixia（펄스픽시아）', bizCeo: '代表者：チョン・ジュンス', bizNo: '事業者登録番号：361-43-01196', bizTel: '連絡先：',
-      bizNote: 'トモランはPulsePixiaが運営する交流サービスで、大学の公式プログラムではありません。',
+      policyLink: '個人情報の取り扱い', termsLink: '利用規約', supportLink: 'お問い合わせ', faqLink: 'FAQ',
+      bizLine1: ['PulsePixia（펄스픽시아）', '代表者：チョン・ジュンス', '事業者登録番号：361-43-01196', '通信販売業申告番号：2025-서울광진-1169'],
+      bizLine2: ['ソウル特別市広津区陵洞路245（君子洞）3階 シェアオフィス6号室', '電話：+82-10-2735-4233', 'メール：team@onpi.kr'],
+      copyright: '© 2026 トモラン（PulsePixia）. All rights reserved.',
+      terms: [
+        { h: '1. サービス内容', b: 'トモランはPulsePixiaが運営する、韓国の大学生と日本の学生のソウル・ローカル交流サービスです。現在の登録は募集開始のお知らせをメールで受け取るためのもので、参加・マッチング・予約が確定するものではありません。' },
+        { h: '2. 参加申し込みと費用', b: '実際の参加申し込みは、日程と参加方法の公開後に別途受け付けます。初期の交流プログラムでは交流の機会づくりと案内を無料で行う予定で、食事代・交通費・入場料などは各自でご負担ください。コースごとの費用の目安は参加を決める前にご案内します。' },
+        { h: '3. 利用者の責任', b: '交流中の個人の行動と安全は参加者本人の責任とし、相手を尊重し不快な言動をしないものとします。問題が確認された参加者の利用を運営者が制限することがあります。' },
+        { h: '4. 運営者の責任範囲', b: '運営者は交流の機会をつなぎ案内する役割を担い、参加者同士の個人的な約束・取引・連絡から生じたトラブルについて直接の責任は負いません。ただし報告があれば確認のうえ必要な対応を行います。' },
+        { h: '5. お知らせの受信停止', b: '募集のお知らせはいつでも下記の連絡先へのご依頼で停止でき、ご依頼後すみやかに登録情報を削除します。' },
+        { h: '6. お問い合わせ', b: 'PulsePixia · team@onpi.kr · +82-10-2735-4233' }
+      ],
       policy: [
         { h: '1. 運営者', b: 'PulsePixia（펄스픽시아）· 代表者 チョン・ジュンス · 事業者登録番号 361-43-01196' },
         { h: '2. 収集する項目', b: '必須：メールアドレス、参加タイプ / 任意：興味のあること、希望の週末・月、日程未定かどうか、選択した表示言語' },
@@ -137,7 +175,7 @@ window.TOMORANG_CONTENT = (function () {
         { h: '5. 第三者提供', b: '収集した情報を第三者に提供しません。' },
         { h: '6. 同意を拒否する権利', b: '同意しないこともできますが、その場合は募集のお知らせを受け取れません。' },
         { h: '7. 閲覧・訂正・削除のご依頼', b: '下記の担当者までご連絡ください。速やかに対応します。' },
-        { h: '8. 個人情報保護の担当者', b: 'チョン・ジュンス · +82-10-2735-4233' }
+        { h: '8. 個人情報保護の担当者', b: 'チョン・ジュンス · team@onpi.kr · +82-10-2735-4233' }
       ],
       mTitle: '募集開始のお知らせを受け取る', close: '閉じる',
       fEmail: 'メールアドレス', fType: '参加タイプ',
@@ -148,7 +186,7 @@ window.TOMORANG_CONTENT = (function () {
       fWeekendsHelp: '参加を希望する週末を選んでください。希望日程のアンケートです。開催日程や予約が確定するものではありません。月を押すと週末の日付が表示されます。',
       undecided: 'まだ日程は決まっていない',
       fConsent: '個人情報の収集・利用についての案内を確認し、同意します。（必須）',
-      fConsentDetail: '収集項目：メールアドレス、参加タイプ、興味のあること、希望の週末\n利用目的：募集のお知らせ\n保有期間：最初のお知らせ後に削除（最長で登録日から3か月）\n運営者：PulsePixia · 担当 チョン・ジュンス +82-10-2735-4233',
+      fConsentDetail: '収集項目：メールアドレス、参加タイプ、興味のあること、希望の週末\n利用目的：募集のお知らせ\n保有期間：最初のお知らせ後に削除（最長で登録日から3か月）\n運営者：PulsePixia · 担当 チョン・ジュンス team@onpi.kr',
       errEmail: 'メールアドレスを正しく入力してください。', errType: '参加タイプを選んでください。', errConsent: '個人情報の収集・利用に同意すると登録できます。',
       submit: '募集開始のお知らせを受け取る', saving: '保存中…', retry: 'もう一度試す',
       ncTitle: 'まだ保存されていません', ncBody: '登録を保存するサーバー（DB）がまだ接続されていません。接続後に受付が始まります。入力内容はそのまま残っています。',
@@ -197,5 +235,6 @@ window.TOMORANG_CONTENT = (function () {
     return `<div class="spr" style="width:${spr.m[0].length * s}px;height:${spr.m.length * s}px"><i style="width:${s}px;height:${s}px;box-shadow:${sh.join(',')}"></i></div>`;
   }
 
-  return { T, MISSIONS, INTEREST_CODES, TYPE_CODES, SPR: { CH_A, CH_B, JESSE, MAIL, ICONS }, sprite };
+  const FLAGS = { kr: `<svg class="flag" viewBox="0 0 30 20" width="30" height="20" aria-hidden="true"><rect width="30" height="20" fill="#fff"/><g shape-rendering="crispEdges"><rect x="13" y="4" width="4" height="1" fill="#CD2E3A"/><rect x="12" y="5" width="6" height="1" fill="#CD2E3A"/><rect x="11" y="6" width="8" height="1" fill="#CD2E3A"/><rect x="10" y="7" width="10" height="1" fill="#CD2E3A"/><rect x="9" y="8" width="12" height="1" fill="#CD2E3A"/><rect x="9" y="9" width="9" height="1" fill="#CD2E3A"/><rect x="18" y="9" width="3" height="1" fill="#0047A0"/><rect x="9" y="10" width="6" height="1" fill="#CD2E3A"/><rect x="15" y="10" width="6" height="1" fill="#0047A0"/><rect x="9" y="11" width="3" height="1" fill="#CD2E3A"/><rect x="12" y="11" width="9" height="1" fill="#0047A0"/><rect x="9" y="12" width="12" height="1" fill="#0047A0"/><rect x="10" y="13" width="10" height="1" fill="#0047A0"/><rect x="11" y="14" width="8" height="1" fill="#0047A0"/><rect x="12" y="15" width="6" height="1" fill="#0047A0"/><rect x="13" y="16" width="4" height="1" fill="#0047A0"/></g><g transform="rotate(-33 6 5.0)"><rect x="3" y="2.5" width="6" height="1" fill="#000"/><rect x="3" y="4.5" width="6" height="1" fill="#000"/><rect x="3" y="6.5" width="6" height="1" fill="#000"/></g><g transform="rotate(33 24 5.0)"><rect x="21" y="2.5" width="2.5" height="1" fill="#000"/><rect x="24.5" y="2.5" width="2.5" height="1" fill="#000"/><rect x="21" y="4.5" width="6" height="1" fill="#000"/><rect x="21" y="6.5" width="2.5" height="1" fill="#000"/><rect x="24.5" y="6.5" width="2.5" height="1" fill="#000"/></g><g transform="rotate(33 6 15.0)"><rect x="3" y="12.5" width="6" height="1" fill="#000"/><rect x="3" y="14.5" width="2.5" height="1" fill="#000"/><rect x="6.5" y="14.5" width="2.5" height="1" fill="#000"/><rect x="3" y="16.5" width="6" height="1" fill="#000"/></g><g transform="rotate(-33 24 15.0)"><rect x="21" y="12.5" width="2.5" height="1" fill="#000"/><rect x="24.5" y="12.5" width="2.5" height="1" fill="#000"/><rect x="21" y="14.5" width="2.5" height="1" fill="#000"/><rect x="24.5" y="14.5" width="2.5" height="1" fill="#000"/><rect x="21" y="16.5" width="2.5" height="1" fill="#000"/><rect x="24.5" y="16.5" width="2.5" height="1" fill="#000"/></g></svg>`, jp: `<svg class="flag" viewBox="0 0 30 20" width="30" height="20" aria-hidden="true" shape-rendering="crispEdges"><rect width="30" height="20" fill="#fff"/><rect x="13" y="4" width="4" height="1" fill="#BC002D"/><rect x="12" y="5" width="6" height="1" fill="#BC002D"/><rect x="11" y="6" width="8" height="1" fill="#BC002D"/><rect x="10" y="7" width="10" height="1" fill="#BC002D"/><rect x="9" y="8" width="12" height="1" fill="#BC002D"/><rect x="9" y="9" width="12" height="1" fill="#BC002D"/><rect x="9" y="10" width="12" height="1" fill="#BC002D"/><rect x="9" y="11" width="12" height="1" fill="#BC002D"/><rect x="9" y="12" width="12" height="1" fill="#BC002D"/><rect x="10" y="13" width="10" height="1" fill="#BC002D"/><rect x="11" y="14" width="8" height="1" fill="#BC002D"/><rect x="12" y="15" width="6" height="1" fill="#BC002D"/><rect x="13" y="16" width="4" height="1" fill="#BC002D"/></svg>` };
+  return { T, MISSIONS, INTEREST_CODES, TYPE_CODES, SPR: { CH_A, CH_B, JESSE, MAIL, ICONS }, sprite, FLAGS };
 })();

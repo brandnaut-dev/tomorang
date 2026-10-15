@@ -99,8 +99,8 @@
   <header>
     <div class="brand"><b>TOMORANG</b><span>토모랑 / トモラン</span></div>
     <div class="langs fr3" role="group" aria-label="${esc(tt.langLabel)}">
-      <button type="button" class="ko" data-lang="ko" aria-pressed="${lang === 'ko'}">한국어</button>
-      <button type="button" class="ja" data-lang="ja" aria-pressed="${lang === 'ja'}">日本語</button>
+      <button type="button" class="ko" data-lang="ko" aria-pressed="${lang === 'ko'}">${C.FLAGS.kr}한국어</button>
+      <button type="button" class="ja" data-lang="ja" aria-pressed="${lang === 'ja'}">${C.FLAGS.jp}日本語</button>
     </div>
   </header>
   <div class="hero-copy">
@@ -170,7 +170,7 @@ ${edge('#F2AFE8', '#DFF1FF')}
     <div class="win fr4d">
       <div class="win-bar ink"><span>SEOUL LOCAL ALBUM</span><span class="dots" aria-hidden="true"><i style="background:#F2AFE8"></i><i style="background:#C8EF8A"></i><i></i></span></div>
       <div class="album-grid">
-        ${tt.photos.map(p => `<figure><div class="slot"><span>${esc(tt.photoPending)}</span><span>${esc(p.hint)}</span></div><figcaption>${esc(p.label)}</figcaption></figure>`).join('')}
+        ${tt.photos.map((p, i) => `<figure class="ph"><div class="ph-win"><img src="photos/${p.file}" alt="${esc(p.alt)}" width="1200" height="900" loading="${i < 2 ? 'eager' : 'lazy'}" decoding="async"></div><figcaption><span class="ph-cat">${esc(tt.photoCats[p.cat])}</span>${esc(p.label)}</figcaption></figure>`).join('')}
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:20px">
@@ -231,8 +231,7 @@ ${edge('#0C4D78', '#DFF1FF')}
       <div class="win fr4d">
         <div class="win-bar ink">${esc(tt.jAlbum)}</div>
         <div class="jalbum">
-          <figure><div class="slot">${esc(tt.jPhotoPending)}</div><figcaption>${esc(tt.jPhoto1)}</figcaption></figure>
-          <figure><div class="slot">${esc(tt.jPhotoPending)}</div><figcaption>${esc(tt.jPhoto2)}</figcaption></figure>
+          ${tt.jPhotos.map(p => `<figure class="ph"><div class="ph-win"><img src="photos/${p.file}" alt="${esc(p.alt)}" width="1200" height="900" loading="lazy" decoding="async"></div><figcaption>${esc(p.label)}</figcaption></figure>`).join('')}
         </div>
       </div>
     </div>
@@ -240,7 +239,7 @@ ${edge('#0C4D78', '#DFF1FF')}
 </section>
 ${edge('#DFF1FF', '#BBDDF4')}
 
-<section class="faqsec" data-screen="08">
+<section class="faqsec" data-screen="08" id="faq">
   <div class="wrap">
     <h2 class="h2">${esc(tt.faqTitle)}</h2>
     <div class="win fr4d">
@@ -266,25 +265,30 @@ ${edge('#DFF1FF', '#BBDDF4')}
 
 <footer>
   <div class="wrap">
-    <div class="foot-top">
-      <b>TOMORANG · 토모랑 · トモラン</b>
+    <nav class="foot-links" aria-label="footer">
+      <button type="button" class="lnk" data-terms>${esc(tt.termsLink)}</button>
       <button type="button" class="lnk" data-policy>${esc(tt.policyLink)}</button>
-    </div>
-    <div class="foot-biz"><span>${esc(tt.bizName)}</span><span>${esc(tt.bizCeo)}</span><span>${esc(tt.bizNo)}</span><span>${esc(tt.bizTel)} <a href="tel:01027354233">010-2735-4233</a></span></div>
-    <span class="foot-note">${esc(tt.bizNote)}</span>
+      <a class="lnk" href="mailto:team@onpi.kr">${esc(tt.supportLink)}</a>
+      <a class="lnk" href="#faq">${esc(tt.faqLink)}</a>
+    </nav>
+    <b class="foot-brand">TOMORANG · 토모랑 · トモラン</b>
+    <p class="foot-biz">${tt.bizLine1.map(x => `<span class="bi">${esc(x)}</span>`).join('<span class="sep" aria-hidden="true">|</span>')}</p>
+    <p class="foot-biz">${tt.bizLine2.map(x => `<span class="bi">${esc(x).replace('010-2735-4233', '<a href="tel:01027354233">010-2735-4233</a>').replace('+82-10-2735-4233', '<a href="tel:+821027354233">+82-10-2735-4233</a>').replace('team@onpi.kr', '<a href="mailto:team@onpi.kr">team@onpi.kr</a>')}</span>`).join('<span class="sep" aria-hidden="true">|</span>')}</p>
+    <p class="foot-copy">${esc(tt.copyright)}</p>
   </div>
 </footer>`;
     $('#app').innerHTML = html;
   }
 
-  // ---------- 개인정보 처리방침 ----------
+  // ---------- 개인정보처리방침 / 이용약관 ----------
   function renderPolicy() {
-    const tt = t(), ov = $('#policy');
-    ov.hidden = !state.policy;
-    if (!state.policy) return;
+    const tt = t(), ov = $('#policy'), kind = state.policy;
+    ov.hidden = !kind;
+    if (!kind) return;
+    const title = kind === 'terms' ? tt.termsLink : tt.policyLink, items = kind === 'terms' ? tt.terms : tt.policy;
     ov.innerHTML = `<div class="dlg" role="dialog" aria-modal="true" aria-labelledby="pol-title">
-      <div class="dlg-bar"><span id="pol-title">${esc(tt.policyLink)}</span><button type="button" class="dlg-x" data-close-policy aria-label="${esc(tt.close)}">×</button></div>
-      <div class="dlg-body"><div class="policy-list">${tt.policy.map(p => `<div><strong>${esc(p.h)}</strong><span>${esc(p.b)}</span></div>`).join('')}</div></div>
+      <div class="dlg-bar"><span id="pol-title">${esc(title)}</span><button type="button" class="dlg-x" data-close-policy aria-label="${esc(tt.close)}">×</button></div>
+      <div class="dlg-body"><div class="policy-list">${items.map(p => `<div><strong>${esc(p.h)}</strong><span>${esc(p.b)}</span></div>`).join('')}</div></div>
     </div>`;
     $('[data-close-policy]', ov).focus();
   }
@@ -311,7 +315,7 @@ ${edge('#DFF1FF', '#BBDDF4')}
       </div>
       <div class="field" role="radiogroup" aria-labelledby="tmr-type">
         <span class="lbl" id="tmr-type">${esc(tt.fType)} <span class="req">*</span></span>
-        <div class="types">${TYPE_CODES.map((code, i) => `<button type="button" class="radio" role="radio" aria-checked="${f.type === code}" data-type="${code}"><i aria-hidden="true"></i>${esc(tt.types[i])}</button>`).join('')}</div>
+        <div class="types">${TYPE_CODES.map((code, i) => `<button type="button" class="radio" role="radio" aria-checked="${f.type === code}" data-type="${code}"><i aria-hidden="true"></i>${code === 'korean_student' ? C.FLAGS.kr : C.FLAGS.jp}${esc(tt.types[i])}</button>`).join('')}</div>
         ${err('type')}
       </div>
       <div class="field">
@@ -396,7 +400,7 @@ ${edge('#DFF1FF', '#BBDDF4')}
     if (b.dataset.lang) { setLang(b.dataset.lang); return; }
     if (b.hasAttribute('data-open')) { openModal(b); return; }
     if (b.hasAttribute('data-close')) { closeModal(); return; }
-    if (b.hasAttribute('data-policy')) { state.policy = true; state.lastFocus = b; renderPolicy(); document.body.classList.add('lock'); return; }
+    if (b.hasAttribute('data-policy') || b.hasAttribute('data-terms')) { state.policy = b.hasAttribute('data-terms') ? 'terms' : 'policy'; state.lastFocus = b; renderPolicy(); document.body.classList.add('lock'); return; }
     if (b.hasAttribute('data-close-policy')) { state.policy = false; renderPolicy(); document.body.classList.toggle('lock', state.open); if (state.lastFocus) state.lastFocus.focus(); return; }
     if (b.dataset.mission != null) { const i = +b.dataset.mission; state.flipped[i] = !state.flipped[i]; b.setAttribute('aria-expanded', String(!!state.flipped[i])); $('.mission-hint', b).textContent = state.flipped[i] ? t().fold : t().open; return; }
     if (b.dataset.faq != null) {
