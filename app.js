@@ -266,14 +266,13 @@ ${edge('#DFF1FF', '#BBDDF4')}
 <footer>
   <div class="wrap">
     <nav class="foot-links" aria-label="footer">
-      <button type="button" class="lnk" data-terms>${esc(tt.termsLink)}</button>
       <button type="button" class="lnk" data-policy>${esc(tt.policyLink)}</button>
-      <a class="lnk" href="mailto:team@onpi.kr">${esc(tt.supportLink)}</a>
+      <a class="lnk" href="mailto:jesse0823@onpi.kr">${esc(tt.supportLink)}</a>
       <a class="lnk" href="#faq">${esc(tt.faqLink)}</a>
     </nav>
     <b class="foot-brand">TOMORANG · 토모랑 · トモラン</b>
     <p class="foot-biz">${tt.bizLine1.map(x => `<span class="bi">${esc(x)}</span>`).join('<span class="sep" aria-hidden="true">|</span>')}</p>
-    <p class="foot-biz">${tt.bizLine2.map(x => `<span class="bi">${esc(x).replace('010-2735-4233', '<a href="tel:01027354233">010-2735-4233</a>').replace('+82-10-2735-4233', '<a href="tel:+821027354233">+82-10-2735-4233</a>').replace('team@onpi.kr', '<a href="mailto:team@onpi.kr">team@onpi.kr</a>')}</span>`).join('<span class="sep" aria-hidden="true">|</span>')}</p>
+    <p class="foot-biz">${tt.bizLine2.map(x => `<span class="bi">${esc(x).replace('010-2735-4233', '<a href="tel:01027354233">010-2735-4233</a>').replace('+82-10-2735-4233', '<a href="tel:+821027354233">+82-10-2735-4233</a>').replace('jesse0823@onpi.kr', '<a href="mailto:jesse0823@onpi.kr">jesse0823@onpi.kr</a>')}</span>`).join('<span class="sep" aria-hidden="true">|</span>')}</p>
     <p class="foot-copy">${esc(tt.copyright)}</p>
   </div>
 </footer>`;
@@ -285,7 +284,7 @@ ${edge('#DFF1FF', '#BBDDF4')}
     const tt = t(), ov = $('#policy'), kind = state.policy;
     ov.hidden = !kind;
     if (!kind) return;
-    const title = kind === 'terms' ? tt.termsLink : tt.policyLink, items = kind === 'terms' ? tt.terms : tt.policy;
+    const title = tt.policyLink, items = tt.policy;
     ov.innerHTML = `<div class="dlg" role="dialog" aria-modal="true" aria-labelledby="pol-title">
       <div class="dlg-bar"><span id="pol-title">${esc(title)}</span><button type="button" class="dlg-x" data-close-policy aria-label="${esc(tt.close)}">×</button></div>
       <div class="dlg-body"><div class="policy-list">${items.map(p => `<div><strong>${esc(p.h)}</strong><span>${esc(p.b)}</span></div>`).join('')}</div></div>
@@ -400,7 +399,7 @@ ${edge('#DFF1FF', '#BBDDF4')}
     if (b.dataset.lang) { setLang(b.dataset.lang); return; }
     if (b.hasAttribute('data-open')) { openModal(b); return; }
     if (b.hasAttribute('data-close')) { closeModal(); return; }
-    if (b.hasAttribute('data-policy') || b.hasAttribute('data-terms')) { state.policy = b.hasAttribute('data-terms') ? 'terms' : 'policy'; state.lastFocus = b; renderPolicy(); document.body.classList.add('lock'); return; }
+    if (b.hasAttribute('data-policy')) { state.policy = 'policy'; state.lastFocus = b; renderPolicy(); document.body.classList.add('lock'); return; }
     if (b.hasAttribute('data-close-policy')) { state.policy = false; renderPolicy(); document.body.classList.toggle('lock', state.open); if (state.lastFocus) state.lastFocus.focus(); return; }
     if (b.dataset.mission != null) { const i = +b.dataset.mission; state.flipped[i] = !state.flipped[i]; b.setAttribute('aria-expanded', String(!!state.flipped[i])); $('.mission-hint', b).textContent = state.flipped[i] ? t().fold : t().open; return; }
     if (b.dataset.faq != null) {
