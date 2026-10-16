@@ -123,19 +123,22 @@
           </div>
         </div>
         <div class="tbl-wrap"><table>
-          <thead><tr><th>#</th><th>신청 시각</th><th>이메일</th><th>유형</th><th>관심사</th><th>희망 월</th><th>희망 주말</th><th>언어</th><th>동의</th><th></th></tr></thead>
+          <thead><tr><th>#</th><th>신청 시각</th><th>이메일</th><th>유형</th><th>성별</th><th>매칭 선호</th><th>선택 동의 시각</th><th>관심사</th><th>희망 월</th><th>희망 주말</th><th>언어</th><th>동의</th><th></th></tr></thead>
           <tbody>${list.length ? list.map((r, i) => `<tr data-id="${esc(r.id)}">
             <td class="muted">${list.length - i}</td>
             <td>${esc(fmtDT(r.createdAt))}</td>
             <td><a href="mailto:${esc(r.email)}">${esc(r.email)}</a></td>
             <td><span class="pill ${r.type === 'korean_student' ? 'ko' : 'ja'}">${esc(TYPE_L[r.type] || r.type)}</span></td>
+            <td>${esc(({female:'여성',male:'남성',other:'기타',prefer_not_to_say:'응답하지 않음'})[r.gender] || '미응답')}</td>
+            <td>${esc(({same_gender:'동성 희망',any_gender:'성별 무관'})[r.matchPreference] || '미응답')}</td>
+            <td>${esc(r.preferencesConsentAt ? fmtDT(r.preferencesConsentAt) : '—')}</td>
             <td class="wrap-cell">${split(r.interests).map(k => `<span class="pill">${esc(INT_L[k] || k)}</span>`).join('') || '<span class="muted">—</span>'}</td>
             <td class="wrap-cell">${String(r.undecided) === 'TRUE' || r.undecided === true ? '<span class="pill" style="background:#FFF3C4">미정</span>' : split(r.months).map(k => `<span class="pill">${esc(k)}</span>`).join('') || '<span class="muted">—</span>'}</td>
             <td class="wrap-cell">${split(r.weekends).map(k => `<span class="pill">${esc(wkLabel(k))}</span>`).join('') || '<span class="muted">—</span>'}</td>
             <td>${esc(r.lang)}</td>
             <td class="muted">${esc(r.consentVersion)}</td>
             <td>${DEMO ? '' : `<button class="del" data-del="${esc(r.id)}" title="이 신청 삭제">삭제</button>`}</td>
-          </tr>`).join('') : `<tr><td colspan="10" class="muted" style="padding:24px;text-align:center">${rows.length ? '조건에 맞는 신청이 없어요.' : '아직 신청이 없어요. 랜딩페이지에서 신청이 들어오면 여기에 쌓여요.'}</td></tr>`}</tbody>
+          </tr>`).join('') : `<tr><td colspan="13" class="muted" style="padding:24px;text-align:center">${rows.length ? '조건에 맞는 신청이 없어요.' : '아직 신청이 없어요. 랜딩페이지에서 신청이 들어오면 여기에 쌓여요.'}</td></tr>`}</tbody>
         </table></div>`)}
       ${log.length ? win('최근 요청 로그 (중복·거절 포함, 이메일 가림)', `<div class="panel-body log">${log.map(l => `<div><span>${esc(fmtDT(l.at))}</span><span class="${/^new$/.test(l.result) ? '' : 'muted'}">${esc(l.result)}</span><span>${esc(l.emailMasked)} · ${esc(TYPE_L[l.type] || l.type || '')} · ${esc(l.lang || '')}</span></div>`).join('')}</div>`, 'ink') : ''}
     `;
@@ -158,7 +161,7 @@
     }
   });
   function csv() {
-    const cols = ['createdAt', 'email', 'type', 'interests', 'months', 'weekends', 'undecided', 'lang', 'consentVersion', 'consentAt', 'id'];
+    const cols = ['createdAt', 'email', 'type', 'gender', 'matchPreference', 'preferencesConsentAt', 'interests', 'months', 'weekends', 'undecided', 'lang', 'consentVersion', 'consentAt', 'id'];
     const line = a => a.map(v => `"${String(v ?? '').replace(/"/g, '""')}"`).join(',');
     const body = [line(cols), ...rows.map(r => line(cols.map(c => r[c])))].join('\r\n');
     const blob = new Blob(['﻿' + body], { type: 'text/csv;charset=utf-8' });

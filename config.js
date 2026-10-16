@@ -6,7 +6,7 @@
 window.TOMORANG_CONFIG = {
   SHEET_ENDPOINT: "https://script.google.com/macros/s/AKfycbwijcdvhCVkH3PONlg0ZSRRsI2FXOmSYiK2PGlvIv0D33O3zsqpBhKwNDxMxsUCVvjOZQ/exec",
   SHEET_URL: "https://docs.google.com/spreadsheets/d/1TfHMvAejJhKzp3dSfg9qsa6iZfT7ZjGMY0IIQOTTEII/edit",
-  CONSENT_VERSION: "2026-10-15",
+  CONSENT_VERSION: "2026-10-16",
   // 신청 팝업에서 보여줄 월 수(이번 달 포함). 운영 월이 확정되면 여기만 바꾼다.
   MONTHS_AHEAD: 7,
   SITE_NAME: "토모랑",

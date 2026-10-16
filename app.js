@@ -10,7 +10,7 @@
   // ---------- 상태 ----------
   const state = {
     lang: null, open: false, policy: false, status: 'idle', errors: {}, faq: 0, flipped: { 0: true },
-    form: { email: '', type: '', interests: [], months: [], weekends: [], undecided: false, consent: false },
+    form: { email: '', type: '', gender: '', matchPreference: '', preferencesConsent: false, interests: [], months: [], weekends: [], undecided: false, consent: false },
     openedAt: 0, lastFocus: null
   };
   function detectLang() {
@@ -318,6 +318,18 @@ ${edge('#DFF1FF', '#BBDDF4')}
         ${err('type')}
       </div>
       <div class="field">
+        <label for="tmr-gender">${esc(tt.fGender)}</label>
+        <select id="tmr-gender" class="inp" aria-describedby="tmr-match-help" aria-invalid="${!!s.errors.gender}">${['', 'female', 'male', 'other', 'prefer_not_to_say'].map((v, i) => `<option value="${v}" ${f.gender === v ? 'selected' : ''}>${esc(tt.genders[i])}</option>`).join('')}</select>
+        ${err('gender')}
+      </div>
+      <div class="field">
+        <label for="tmr-match">${esc(tt.fMatch)}</label>
+        <select id="tmr-match" class="inp" aria-describedby="tmr-match-help">${['', 'same_gender', 'any_gender'].map((v, i) => `<option value="${v}" ${f.matchPreference === v ? 'selected' : ''}>${esc(tt.matches[i])}</option>`).join('')}</select>
+        <span class="help" id="tmr-match-help">${esc(tt.matchHelp)}</span>
+        <label class="consent"><input type="checkbox" id="tmr-preferences-consent" ${f.preferencesConsent ? 'checked' : ''}><span>${esc(tt.preferencesConsent)}</span></label>
+        ${err('preferencesConsent')}
+      </div>
+      <div class="field">
         <span class="lbl">${esc(tt.fInterests)}</span>
         <div class="chips">${INTEREST_CODES.map((code, i) => `<button type="button" class="chip" aria-pressed="${f.interests.includes(code)}" data-interest="${code}">${esc(tt.interests[i])}</button>`).join('')}</div>
       </div>
@@ -368,14 +380,16 @@ ${edge('#DFF1FF', '#BBDDF4')}
     const email = f.email.trim().toLowerCase();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || email.length > 254) errors.email = true;
     if (!TYPE_CODES.includes(f.type)) errors.type = true;
+    if (f.matchPreference === 'same_gender' && !['female', 'male', 'other'].includes(f.gender)) errors.gender = true;
+    if ((f.gender || f.matchPreference) && !f.preferencesConsent) errors.preferencesConsent = true;
     if (!f.consent) errors.consent = true;
     state.errors = errors;
-    if (Object.keys(errors).length) { state.status = 'idle'; renderModal(errors.email ? '#tmr-email' : errors.type ? '[data-type]' : '#tmr-consent'); return; }
+    if (Object.keys(errors).length) { state.status = 'idle'; renderModal(errors.email ? '#tmr-email' : errors.type ? '[data-type]' : errors.gender ? '#tmr-gender' : errors.preferencesConsent ? '#tmr-preferences-consent' : '#tmr-consent'); return; }
     state.status = 'saving'; renderModal('[data-submit]');
     if (!CFG.SHEET_ENDPOINT) { await new Promise(r => setTimeout(r, 500)); state.status = 'not_connected'; renderModal('[data-submit]'); return; }
     const hp = $('#modal input[name="website"]');
     const payload = {
-      email, type: f.type, interests: f.interests.slice(), months: f.months.slice().sort(), weekends: f.weekends.slice().sort(),
+      email, type: f.type, gender: f.gender, matchPreference: f.matchPreference, preferencesConsent: !!f.preferencesConsent, interests: f.interests.slice(), months: f.months.slice().sort(), weekends: f.weekends.slice().sort(),
       undecided: !!f.undecided, lang: state.lang, consentVersion: CFG.CONSENT_VERSION || '', consent: true,
       elapsedMs: Date.now() - state.openedAt, website: hp ? hp.value : '', userAgent: navigator.userAgent, referrer: location.origin + location.pathname
     };
@@ -426,6 +440,9 @@ ${edge('#DFF1FF', '#BBDDF4')}
     if (e.target.id === 'tmr-email') { state.form.email = e.target.value; if (state.errors.email) { delete state.errors.email; e.target.setAttribute('aria-invalid', 'false'); const er = e.target.parentElement.querySelector('.err'); if (er) er.remove(); } if (state.status === 'not_connected' || state.status === 'error') state.status = 'idle'; }
   });
   document.addEventListener('change', e => {
+    if (e.target.id === 'tmr-gender') { setForm({ gender: e.target.value }); delete state.errors.gender; renderModal('#tmr-gender'); }
+    if (e.target.id === 'tmr-match') { setForm({ matchPreference: e.target.value }); delete state.errors.gender; renderModal('#tmr-match'); }
+    if (e.target.id === 'tmr-preferences-consent') { setForm({ preferencesConsent: e.target.checked }); delete state.errors.preferencesConsent; renderModal('#tmr-preferences-consent'); }
     if (e.target.id === 'tmr-consent') { setForm({ consent: e.target.checked }); if (e.target.checked) { delete state.errors.consent; const er = e.target.closest('.field').querySelector('.err'); if (er) er.remove(); } }
   });
   document.addEventListener('keydown', e => {
