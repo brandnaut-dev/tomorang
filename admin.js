@@ -76,7 +76,7 @@
   // ---- 메인 화면 ----
   function render() {
     const today = seoulDate(new Date());
-    const ko = rows.filter(r => r.type === 'korean_student').length, ja = rows.filter(r => r.type === 'japanese_student').length;
+    const bike = rows.filter(r => String(r.bike) === 'TRUE' || r.bike === true).length;
     const todayN = rows.filter(r => String(r.createdAt || '').slice(0, 10) === today).length;
     const week = rows.filter(r => (Date.now() - new Date(r.createdAt).getTime()) < 7 * 864e5).length;
     const langJa = rows.filter(r => r.lang === 'ja').length;
@@ -87,7 +87,7 @@
     const topWk = [...wkMap.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 8).map(x => x[0]);
 
     const q = filter.q.toLowerCase();
-    const list = rows.filter(r => (filter.type === 'all' || r.type === filter.type) && (filter.lang === 'all' || r.lang === filter.lang) && (!q || String(r.email).toLowerCase().includes(q)))
+    const list = rows.filter(r => (filter.lang === 'all' || r.lang === filter.lang) && (!q || String(r.email).toLowerCase().includes(q)))
       .sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)));
 
     app.innerHTML = head(`<div class="toolbar">
@@ -101,8 +101,7 @@
       </div>`) + `
       <div class="kpis">
         <div class="kpi fr3"><b>${rows.length}</b><span>전체 신청</span></div>
-        <div class="kpi fr3 pink"><b>${ko}</b><span>한국 대학생</span></div>
-        <div class="kpi fr3 lime"><b>${ja}</b><span>일본 학생</span></div>
+        <div class="kpi fr3 lime"><b>${bike}</b><span>바이크 이동 OK</span></div>
         <div class="kpi fr3"><b>${todayN}</b><span>오늘 신청</span></div>
         <div class="kpi fr3"><b>${week}</b><span>최근 7일</span></div>
         <div class="kpi fr3"><b>${langJa}</b><span>일본어 화면으로 신청</span></div>
@@ -116,29 +115,23 @@
         <div class="filters">
           <input class="inp" id="q" type="search" placeholder="이메일 검색" value="${esc(filter.q)}">
           <div class="seg">
-            ${[['all', '전체'], ['korean_student', '한국 대학생'], ['japanese_student', '일본 학생']].map(([v, l]) => `<button class="chip" data-ftype="${v}" aria-pressed="${filter.type === v}">${l}</button>`).join('')}
-          </div>
-          <div class="seg">
             ${[['all', '언어 전체'], ['ko', '한국어'], ['ja', '日本語']].map(([v, l]) => `<button class="chip lime" data-flang="${v}" aria-pressed="${filter.lang === v}">${l}</button>`).join('')}
           </div>
         </div>
         <div class="tbl-wrap"><table>
-          <thead><tr><th>#</th><th>신청 시각</th><th>이메일</th><th>유형</th><th>성별</th><th>매칭 선호</th><th>선택 동의 시각</th><th>관심사</th><th>희망 월</th><th>희망 주말</th><th>언어</th><th>동의</th><th></th></tr></thead>
+          <thead><tr><th>#</th><th>신청 시각</th><th>이메일</th><th>바이크</th><th>관심사</th><th>희망 월</th><th>희망 주말</th><th>언어</th><th>동의</th><th></th></tr></thead>
           <tbody>${list.length ? list.map((r, i) => `<tr data-id="${esc(r.id)}">
             <td class="muted">${list.length - i}</td>
             <td>${esc(fmtDT(r.createdAt))}</td>
             <td><a href="mailto:${esc(r.email)}">${esc(r.email)}</a></td>
-            <td><span class="pill ${r.type === 'korean_student' ? 'ko' : 'ja'}">${esc(TYPE_L[r.type] || r.type)}</span></td>
-            <td>${esc(({female:'여성',male:'남성',other:'기타',prefer_not_to_say:'응답하지 않음'})[r.gender] || '미응답')}</td>
-            <td>${esc(({same_gender:'동성 희망',any_gender:'성별 무관'})[r.matchPreference] || '미응답')}</td>
-            <td>${esc(r.preferencesConsentAt ? fmtDT(r.preferencesConsentAt) : '—')}</td>
+            <td>${String(r.bike) === 'TRUE' || r.bike === true ? '<span class="pill" style="background:var(--lime)">OK</span>' : '<span class="muted">—</span>'}</td>
             <td class="wrap-cell">${split(r.interests).map(k => `<span class="pill">${esc(INT_L[k] || k)}</span>`).join('') || '<span class="muted">—</span>'}</td>
             <td class="wrap-cell">${String(r.undecided) === 'TRUE' || r.undecided === true ? '<span class="pill" style="background:#FFF3C4">미정</span>' : split(r.months).map(k => `<span class="pill">${esc(k)}</span>`).join('') || '<span class="muted">—</span>'}</td>
             <td class="wrap-cell">${split(r.weekends).map(k => `<span class="pill">${esc(wkLabel(k))}</span>`).join('') || '<span class="muted">—</span>'}</td>
             <td>${esc(r.lang)}</td>
             <td class="muted">${esc(r.consentVersion)}</td>
             <td>${DEMO ? '' : `<button class="del" data-del="${esc(r.id)}" title="이 신청 삭제">삭제</button>`}</td>
-          </tr>`).join('') : `<tr><td colspan="13" class="muted" style="padding:24px;text-align:center">${rows.length ? '조건에 맞는 신청이 없어요.' : '아직 신청이 없어요. 랜딩페이지에서 신청이 들어오면 여기에 쌓여요.'}</td></tr>`}</tbody>
+          </tr>`).join('') : `<tr><td colspan="10" class="muted" style="padding:24px;text-align:center">${rows.length ? '조건에 맞는 신청이 없어요.' : '아직 신청이 없어요. 랜딩페이지에서 신청이 들어오면 여기에 쌓여요.'}</td></tr>`}</tbody>
         </table></div>`)}
       ${log.length ? win('최근 요청 로그 (중복·거절 포함, 이메일 가림)', `<div class="panel-body log">${log.map(l => `<div><span>${esc(fmtDT(l.at))}</span><span class="${/^new$/.test(l.result) ? '' : 'muted'}">${esc(l.result)}</span><span>${esc(l.emailMasked)} · ${esc(TYPE_L[l.type] || l.type || '')} · ${esc(l.lang || '')}</span></div>`).join('')}</div>`, 'ink') : ''}
     `;
@@ -150,7 +143,6 @@
     const b = e.target.closest('button,a[data-csv]'); if (!b) return;
     if (b.hasAttribute('data-reload')) { load(); return; }
     if (b.hasAttribute('data-logout')) { try { sessionStorage.removeItem('tomorang.admin'); } catch (x) {} key = ''; renderGate(); return; }
-    if (b.dataset.ftype) { filter.type = b.dataset.ftype; render(); return; }
     if (b.dataset.flang) { filter.lang = b.dataset.flang; render(); return; }
     if (b.hasAttribute('data-csv')) { csv(); return; }
     if (b.dataset.del) {
@@ -161,7 +153,7 @@
     }
   });
   function csv() {
-    const cols = ['createdAt', 'email', 'type', 'gender', 'matchPreference', 'preferencesConsentAt', 'interests', 'months', 'weekends', 'undecided', 'lang', 'consentVersion', 'consentAt', 'id'];
+    const cols = ['createdAt', 'email', 'bike', 'interests', 'months', 'weekends', 'undecided', 'lang', 'consentVersion', 'consentAt', 'id'];
     const line = a => a.map(v => `"${String(v ?? '').replace(/"/g, '""')}"`).join(',');
     const body = [line(cols), ...rows.map(r => line(cols.map(c => r[c])))].join('\r\n');
     const blob = new Blob(['﻿' + body], { type: 'text/csv;charset=utf-8' });

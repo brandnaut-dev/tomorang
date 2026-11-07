@@ -38,6 +38,8 @@ h1,h2,h3,p{margin:0}
 @keyframes tmrDrift{from{transform:translateX(0)}to{transform:translateX(72px)}}
 @keyframes tmrBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes tmrPop{0%,70%{opacity:0;transform:translateY(4px)}80%,100%{opacity:1;transform:translateY(0)}}
+@keyframes tmrRide{from{transform:translateX(-140px)}to{transform:translateX(calc(100vw + 140px))}}
+@keyframes tmrWheel{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
 .cloud{position:absolute}
 .cloud>i{position:absolute;display:block;background:#fff}
 .star{position:absolute;width:12px;height:12px}
@@ -45,6 +47,14 @@ h1,h2,h3,p{margin:0}
 body.motion .cloud{animation:tmrDrift var(--dur,40s) steps(18) var(--delay,0s) infinite alternate}
 body.motion .person{animation:tmrBob 1.6s steps(2) var(--delay,0s) infinite}
 body.motion .bubble{animation:tmrPop 6s steps(4) var(--delay,0s) infinite}
+.bike-run{position:absolute;left:0;bottom:12px;z-index:2;transform:translateX(20vw)}
+body.motion .bike-run{animation:tmrRide 18s linear infinite}
+body.motion .bike-run .spr{animation:tmrWheel .5s steps(2) infinite}
+.bike-run.rev .spr{transform:scaleX(-1)}
+body.motion .bike-run.rev{animation-direction:reverse;animation-duration:22s}
+.jesse-bike{margin-left:auto;align-self:flex-end;flex:none}
+.bike-chip{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:8px 14px 8px 10px;text-align:left}
+.bike-ico{display:inline-flex;flex:none}
 body.motion .jesse:hover .spr,body.motion .jesse:active .spr{animation:tmrBob .8s steps(2) infinite}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
@@ -214,7 +224,7 @@ figcaption{font-size:15px;font-weight:700}
 .ph-cat{display:inline-block;font-family:var(--fm);font-size:11px;background:var(--bg);padding:2px 6px;margin-right:8px;vertical-align:middle;font-weight:400}
 .flag{display:inline-block;width:21px;height:14px;vertical-align:-2px;margin-right:7px;box-shadow:0 0 0 1px var(--ink);flex:none}
 .langs .flag{margin-right:6px}
-@media (max-width:767px){.profile{padding:18px}.profile-top{flex-direction:column;align-items:flex-start;gap:14px}.jesse{width:96px;height:96px}.jalbum{grid-template-columns:1fr;gap:14px;padding:16px}}
+@media (max-width:767px){.profile{padding:18px}.profile-top{flex-direction:column;align-items:flex-start;gap:14px}.jesse-bike{margin-left:0;align-self:flex-start}.jesse{width:96px;height:96px}.jalbum{grid-template-columns:1fr;gap:14px;padding:16px}}
 
 /* 08 FAQ */
 .faqsec{background:var(--sky);padding:clamp(56px,8vw,88px) 20px 0;position:relative;overflow:hidden}

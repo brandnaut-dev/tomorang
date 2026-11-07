@@ -37,7 +37,11 @@ window.TOMORANG_CONTENT = (function () {
         { file: 'ttukseom-cafe.jpg', cat: 'together', label: '뚝섬 한강 카페', alt: '한강과 다리가 보이는 뚝섬 카페 창가의 커피' },
         { file: 'ttukseom-sunset.jpg', cat: 'place', label: '뚝섬 한강공원 노을', alt: '노을 진 한강과 다리 아래 풍경' },
         { file: 'namsan-view.jpg', cat: 'place', label: '남산타워가 보이는 전망', alt: '돌조각 너머로 보이는 남산과 N서울타워' },
-        { file: 'namsan-tower-hangangdaero.jpg', cat: 'place', label: '한강대로에서 본 남산타워', alt: '저녁 하늘의 N서울타워와 한강대로 신호등' }
+        { file: 'namsan-tower-hangangdaero.jpg', cat: 'place', label: '한강대로에서 본 남산타워', alt: '저녁 하늘의 N서울타워와 한강대로 신호등' },
+        { file: 'ddp.jpg', cat: 'place', label: 'DDP 앞 사거리', alt: '카페 창가에서 내려다본 동대문 DDP 앞 사거리와 건물들' },
+        { file: 'naksan-cafe.jpg', cat: 'together', label: '낙산 카페에서 본 서울', alt: '낙산 위 카페에서 본 노을 진 서울 시내와 남산타워' },
+        { file: 'night-alley.jpg', cat: 'place', label: '밤 골목', alt: '밤에 불 켜진 동네 골목과 작은 가게들' },
+        { file: 'ikseon-cafe.jpg', cat: 'together', label: '익선동 카페', alt: '익선동 카페 창 너머로 보이는 한옥 지붕' }
       ],
       missionTitle: '대화 미션 카드', missionNote: '모두 완료해야 하는 과제가 아니라, 대화가 필요할 때 골라 쓰는 카드예요.',
       open: '펼치기', fold: '접기',
@@ -46,7 +50,7 @@ window.TOMORANG_CONTENT = (function () {
       c2Body: '특별한 명소를 찾을 필요 없어요. 내가 좋아하는 서울을 소개하고, 일본 친구가 좋아하는 일상도 들어보세요.',
       c2Sub: '일정이 아직 정해지지 않았어도 괜찮아요. 모집 소식을 받아보고 참여를 결정하세요.',
       jTitle: '서울을 여행해 온 7년,\n제가 좋아하게 된 서울을 소개할게요.',
-      jSchoolK: '학교', jSchool: '서울 소재 대학 4학년 재학', jSeoulK: '서울', jSeoul: '서울 여행 7년', jLangK: '언어', jLang: '한국어 · 영어 / 일본어 공부 중',
+      jSchoolK: '학교', jSchool: '서울 소재 대학 4학년 재학', jSeoulK: '서울', jSeoul: '서울 여행 7년', jLangK: '언어', jLang: '한국어 · 영어 / 일본어 공부 중', jBikeK: '바이크', jBike: '바이크로 서울 곳곳을 다녀요',
       jIntro: '안녕하세요, Jesse예요.\n서울에 있는 대학교 4학년에 재학하며 AI 서비스 창업을 하고 있어요. 서울 곳곳을 여행하듯 다닌 지 7년이 됐어요.\n평소에는 일을 많이 하고, 책 읽을 곳을 찾아다니거나 서울의 여러 동네를 돌아봐요.\n특히 남영역 주변과 용산을 좋아해요. 지금의 서울다운 모습과 오래된 도시의 흔적을 함께 만날 수 있거든요. 제가 좋아하게 된 장소와 그 이유를 함께 나누고 싶어요.',
       jLangBody: '한국어와 영어로 대화할 수 있어요. 일본어는 공부 중이에요. 서로 아는 표현을 알려주고, 말이 막힐 때는 번역기도 함께 사용해요.',
       jAlbum: 'JESSE가 직접 찍은 동네', jPhotoPending: 'Jesse 촬영 사진 준비 중',
@@ -65,8 +69,8 @@ window.TOMORANG_CONTENT = (function () {
       copyright: '© 2026 토모랑(펄스픽시아). All rights reserved.',
       policy: [
         { h: '1. 운영자', b: '펄스픽시아(PulsePixia) · 대표자 정준수 · 사업자등록번호 361-43-01196' },
-        { h: '2. 수집 항목', b: '필수: 이메일, 참여 유형 / 선택: 성별, 매칭 선호, 관심사, 희망 주말 및 월, 일정 미정 여부, 선택한 화면 언어' },
-        { h: '3. 이용 목적', b: '토모랑 첫 모집 일정과 참여 방법 안내. 별도 선택 동의한 성별·매칭 선호는 희망에 맞는 교류 준비에 이용합니다. 그 외 광고나 다른 목적으로 사용하지 않습니다.' },
+        { h: '2. 수집 항목', b: '필수: 이메일 / 선택: 관심사, 희망 주말 및 월, 일정 미정 여부, 바이크 이동 희망, 선택한 화면 언어' },
+        { h: '3. 이용 목적', b: '토모랑 첫 모집 일정과 참여 방법 안내. 그 외 광고나 다른 목적으로 사용하지 않습니다.' },
         { h: '4. 보유 및 이용 기간', b: '첫 모집 안내를 보낸 뒤 지체 없이 파기하며, 안내가 이루어지지 않더라도 신청일로부터 3개월이 지나면 파기합니다. 이용자가 삭제를 요청하면 즉시 파기합니다.' },
         { h: '5. 제3자 제공', b: '수집한 정보를 제3자에게 제공하지 않습니다.' },
         { h: '6. 동의 거부 권리', b: '개인정보 수집에 동의하지 않을 수 있으며, 이 경우 모집 소식 알림을 받을 수 없습니다.' },
@@ -74,23 +78,15 @@ window.TOMORANG_CONTENT = (function () {
         { h: '8. 개인정보 보호 담당자', b: '정준수 · jesse0823@onpi.kr · 010-2735-4233' }
       ],
       mTitle: '첫 모집 소식 받기', close: '닫기',
-      fEmail: '이메일', fType: '참여 유형',
-      fGender: '성별 (선택)', genders: ['선택하지 않음', '여성', '남성', '기타', '응답하지 않음'],
-      fMatch: '매칭 선호 (선택)', matches: ['선택하지 않음', '동성 매칭을 희망해요', '성별은 상관없어요'],
-      matchHelp: '편하게 교류할 수 있도록 성별과 매칭 선호를 확인해요. 희망 조사이며, 실제 참가나 동성 매칭이 확정되는 것은 아니에요. 선택하지 않아도 모집 알림을 받을 수 있어요.',
-      preferencesConsent: '성별·매칭 선호를 희망에 맞는 교류 준비에 사용하는 데 동의해요. (선택 · 첫 모집 안내 후 파기, 최대 3개월)',
-      errGender: '동성 매칭을 희망하면 성별을 선택해 주세요. 응답을 원하지 않으면 매칭 선호를 선택하지 않아도 돼요.',
-      errPreferencesConsent: '선택한 성별·매칭 선호의 수집·이용에 동의하거나, 해당 선택을 비워 주세요.',
-
-      types: ['서울을 소개할 한국 대학생', '서울을 방문할 일본 학생'],
+      fEmail: '이메일', fBike: '바이크로 함께 이동해도 괜찮아요 (선택)',
       fInterests: '관심사 (선택 · 여러 개 가능)',
       interests: ['카페', '음식', '동네 산책', '전시와 문화', '쇼핑', '아직 미정'],
       fWeekends: '참여 또는 방문 희망 주말 (선택)',
       fWeekendsHelp: '참여하고 싶은 주말을 알려주세요. 희망 일정 조사이며, 실제 운영 일정이나 예약이 확정되는 것은 아니에요. 월을 누르면 주말 날짜가 열려요.',
       undecided: '아직 일정 미정',
       fConsent: '개인정보 수집·이용 안내를 확인했고 동의합니다. (필수)',
-      fConsentDetail: '수집 항목: 이메일, 참여 유형, 관심사, 희망 주말\n이용 목적: 모집 소식 안내\n보유 기간: 첫 모집 안내 후 파기 (최대 신청일로부터 3개월)\n운영자: 펄스픽시아 · 담당자 정준수 jesse0823@onpi.kr',
-      errEmail: '이메일 주소를 정확히 입력해 주세요.', errType: '참여 유형을 선택해 주세요.', errConsent: '개인정보 수집·이용에 동의해야 신청할 수 있어요.',
+      fConsentDetail: '수집 항목: 이메일, 관심사, 희망 주말, 바이크 이동 희망\n이용 목적: 모집 소식 안내\n보유 기간: 첫 모집 안내 후 파기 (최대 신청일로부터 3개월)\n운영자: 펄스픽시아 · 담당자 정준수 jesse0823@onpi.kr',
+      errEmail: '이메일 주소를 정확히 입력해 주세요.', errConsent: '개인정보 수집·이용에 동의해야 신청할 수 있어요.',
       submit: '첫 모집 소식 받기', saving: '저장 중…', retry: '다시 시도하기',
       ncTitle: '아직 저장되지 않았어요', ncBody: '신청 저장 서버(DB)가 아직 연결되지 않았어요. 연결된 뒤에 실제로 접수됩니다. 입력한 내용은 그대로 남아 있어요.',
       failTitle: '저장에 실패했어요', failBody: '네트워크 또는 서버 문제로 저장되지 않았어요. 잠시 후 다시 시도해 주세요. 입력한 내용은 그대로 남아 있어요.',
@@ -132,7 +128,11 @@ window.TOMORANG_CONTENT = (function () {
         { file: 'ttukseom-cafe.jpg', cat: 'together', label: 'トゥクソム、漢江のカフェ', alt: '漢江と橋が見えるトゥクソムのカフェの窓辺のコーヒー' },
         { file: 'ttukseom-sunset.jpg', cat: 'place', label: 'トゥクソム漢江公園の夕焼け', alt: '夕焼けの漢江と橋の下の風景' },
         { file: 'namsan-view.jpg', cat: 'place', label: '南山タワーが見える展望', alt: '石像の向こうに見える南山とNソウルタワー' },
-        { file: 'namsan-tower-hangangdaero.jpg', cat: 'place', label: '漢江大路から見た南山タワー', alt: '夕方の空のNソウルタワーと漢江大路の信号機' }
+        { file: 'namsan-tower-hangangdaero.jpg', cat: 'place', label: '漢江大路から見た南山タワー', alt: '夕方の空のNソウルタワーと漢江大路の信号機' },
+        { file: 'ddp.jpg', cat: 'place', label: 'DDP前の交差点', alt: 'カフェの窓から見下ろした東大門DDP前の交差点とビル' },
+        { file: 'naksan-cafe.jpg', cat: 'together', label: '駱山のカフェから見たソウル', alt: '駱山の上のカフェから見た夕焼けのソウル市街と南山タワー' },
+        { file: 'night-alley.jpg', cat: 'place', label: '夜の路地', alt: '夜に明かりがともる町の路地と小さなお店' },
+        { file: 'ikseon-cafe.jpg', cat: 'together', label: '益善洞のカフェ', alt: '益善洞のカフェの窓越しに見える韓屋の屋根' }
       ],
       missionTitle: '会話ミッションカード', missionNote: '全部こなす課題ではなく、会話のきっかけが欲しいときに選んで使うカードです。',
       open: 'ひらく', fold: 'とじる',
@@ -141,7 +141,7 @@ window.TOMORANG_CONTENT = (function () {
       c2Body: 'カンジャンケジャンやタッカンマリを楽しむ旅に、もうひとつ。学生が友だちと通うごはん屋さん、週末に出かける街、ひと息つく近所のカフェへ。案内してくれる学生の「ここが好き」を、一緒に歩いて見つけませんか。',
       c2Sub: '旅行の日程が決まっていなくても大丈夫。募集のお知らせを見てから、参加を検討できます。',
       jTitle: 'ソウルを旅して7年。\n僕が好きになったソウルをご案内します。',
-      jSchoolK: '学校', jSchool: 'ソウルの大学 4年生', jSeoulK: 'ソウル', jSeoul: 'ソウル旅 7年', jLangK: '言語', jLang: '韓国語 · 英語 / 日本語は勉強中',
+      jSchoolK: '学校', jSchool: 'ソウルの大学 4年生', jSeoulK: 'ソウル', jSeoul: 'ソウル旅 7年', jLangK: '言語', jLang: '韓国語 · 英語 / 日本語は勉強中', jBikeK: 'バイク', jBike: 'バイクでソウルのあちこちを回っています',
       jIntro: 'はじめまして、Jesseです。\nソウルの大学に通う4年生で、AIサービスの事業に取り組んでいます。ソウルのあちこちを旅するように歩いて7年になります。\n普段は仕事をしたり、本を読む場所を探したり、ソウルのいろいろな街を歩いたりしています。\n特に好きなのは、南営駅周辺と龍山。今のソウルらしさと、昔からの街の面影が一緒に感じられるからです。お気に入りの場所と、その場所を好きになった理由を一緒にお伝えします。',
       jLangBody: '韓国語と英語で会話できます。日本語は勉強中です。お互いに知っている表現を教え合い、必要なときは翻訳アプリも使いましょう。',
       jAlbum: 'JESSEが撮った街', jPhotoPending: 'Jesse撮影の写真 準備中',
@@ -160,8 +160,8 @@ window.TOMORANG_CONTENT = (function () {
       copyright: '© 2026 トモラン（PulsePixia）. All rights reserved.',
       policy: [
         { h: '1. 運営者', b: 'PulsePixia（펄스픽시아）· 代表者 チョン・ジュンス · 事業者登録番号 361-43-01196' },
-        { h: '2. 収集する項目', b: '必須：メールアドレス、参加タイプ / 任意：性別、交流相手の希望、興味のあること、希望の週末・月、日程未定かどうか、選択した表示言語' },
-        { h: '3. 利用目的', b: 'トモランの最初の募集日程と参加方法のお知らせ。別途同意いただいた性別・交流相手の希望は、ご希望に沿った交流の準備に利用します。広告やその他の目的には使用しません。' },
+        { h: '2. 収集する項目', b: '必須：メールアドレス / 任意：興味のあること、希望の週末・月、日程未定かどうか、バイク移動の希望、選択した表示言語' },
+        { h: '3. 利用目的', b: 'トモランの最初の募集日程と参加方法のお知らせ。広告やその他の目的には使用しません。' },
         { h: '4. 保有・利用期間', b: '最初の募集のお知らせを送信したあと速やかに削除します。お知らせがない場合も、登録日から3か月で削除します。削除のご依頼があれば直ちに削除します。' },
         { h: '5. 第三者提供', b: '収集した情報を第三者に提供しません。' },
         { h: '6. 同意を拒否する権利', b: '同意しないこともできますが、その場合は募集のお知らせを受け取れません。' },
@@ -169,23 +169,15 @@ window.TOMORANG_CONTENT = (function () {
         { h: '8. 個人情報保護の担当者', b: 'チョン・ジュンス · jesse0823@onpi.kr · +82-10-2735-4233' }
       ],
       mTitle: '募集開始のお知らせを受け取る', close: '閉じる',
-      fEmail: 'メールアドレス', fType: '参加タイプ',
-      fGender: '性別（任意）', genders: ['未選択', '女性', '男性', 'その他', '回答しない'],
-      fMatch: '交流相手の希望（任意）', matches: ['未選択', '同性の相手を希望する', '相手の性別は気にしない'],
-      matchHelp: '気兼ねなく交流できるよう、性別と交流相手の希望を伺います。希望のアンケートであり、参加や同性とのマッチングを確約するものではありません。未回答でも募集のお知らせを受け取れます。',
-      preferencesConsent: '性別・交流相手の希望を、希望に沿った交流の準備に利用することに同意します。（任意・最初のお知らせ後に削除、最長3か月）',
-      errGender: '同性の相手を希望する場合は性別を選んでください。回答を希望しない場合は、交流相手の希望も未選択にできます。',
-      errPreferencesConsent: '性別・交流相手の希望の収集・利用に同意するか、選択を解除してください。',
-
-      types: ['ソウルを案内したい韓国の大学生', 'ソウルを訪れる日本の学生'],
+      fEmail: 'メールアドレス', fBike: 'バイクでの移動もOK（任意）',
       fInterests: '興味のあること（任意 · 複数選択可）',
       interests: ['カフェ', 'グルメ', '街歩き', '展示・文化', 'ショッピング', 'まだ決めていない'],
       fWeekends: '参加・訪問を希望する週末（任意）',
       fWeekendsHelp: '参加を希望する週末を選んでください。希望日程のアンケートです。開催日程や予約が確定するものではありません。月を押すと週末の日付が表示されます。',
       undecided: 'まだ日程は決まっていない',
       fConsent: '個人情報の収集・利用についての案内を確認し、同意します。（必須）',
-      fConsentDetail: '収集項目：メールアドレス、参加タイプ、興味のあること、希望の週末\n利用目的：募集のお知らせ\n保有期間：最初のお知らせ後に削除（最長で登録日から3か月）\n運営者：PulsePixia · 担当 チョン・ジュンス jesse0823@onpi.kr',
-      errEmail: 'メールアドレスを正しく入力してください。', errType: '参加タイプを選んでください。', errConsent: '個人情報の収集・利用に同意すると登録できます。',
+      fConsentDetail: '収集項目：メールアドレス、興味のあること、希望の週末、バイク移動の希望\n利用目的：募集のお知らせ\n保有期間：最初のお知らせ後に削除（最長で登録日から3か月）\n運営者：PulsePixia · 担当 チョン・ジュンス jesse0823@onpi.kr',
+      errEmail: 'メールアドレスを正しく入力してください。', errConsent: '個人情報の収集・利用に同意すると登録できます。',
       submit: '募集開始のお知らせを受け取る', saving: '保存中…', retry: 'もう一度試す',
       ncTitle: 'まだ保存されていません', ncBody: '登録を保存するサーバー（DB）がまだ接続されていません。接続後に受付が始まります。入力内容はそのまま残っています。',
       failTitle: '保存できませんでした', failBody: 'ネットワークまたはサーバーの問題で保存されませんでした。しばらくしてからもう一度お試しください。入力内容はそのまま残っています。',
@@ -225,6 +217,11 @@ window.TOMORANG_CONTENT = (function () {
   const IC_HOUSE = { c: { R: '#A47BE2', B: '#BBDDF4' }, m: ['.....KK.....', '....KRRK....', '...KRRRRK...', '..KRRRRRRK..', '.KRRRRRRRRK.', 'KKKKKKKKKKKK', '.KWWWWWWWWK.', '.KWBBWWKKWK.', '.KWBBWWKKWK.', '.KWWWWWKKWK.', '.KWWWWWKKWK.', 'KKKKKKKKKKKK'] };
   const IC_PIN = { c: { R: '#F2AFE8', G: '#86C3AE' }, m: ['...KKKKKK...', '..KRRRRRRK..', '.KRRRWWRRRK.', '.KRRWWWWRRK.', '.KRRRWWRRRK.', '..KRRRRRRK..', '...KRRRRK...', '....KRRK....', '.....KK.....', '............', '..GGGGGGGG..', '............'] };
   const IC_MAP = { c: { G: '#C8EF8A', B: '#BBDDF4', R: '#F2AFE8' }, m: ['KKKKKKKKKKKK', 'KGGGKBBBKGGK', 'KGRGKBBBKGGK', 'KGGRKBBBKGGK', 'KGGGRBBBKGGK', 'KGGGKRRBKGGK', 'KGGGKBBRKGGK', 'KGGGKBBBRGGK', 'KGGGKBBBKRGK', 'KGGGKBBBKGRK', 'KGGGKBBBKGGK', 'KKKKKKKKKKKK'] };
+  const BIKE = { c: { P: '#F2AFE8', V: '#A47BE2', T: '#0C4D78', W: '#FFFFFF', L: '#C8EF8A' }, m: [
+    '.......KKKK.............', '......KVVVVK............', '......KKKKKK.....KK.....', '........KK......KWK.....',
+    '.......KPPK.....KK......', '......KPPPPK...KPK......', '.....KPPPPPPKKKPPK......', '....KPPPPPPPPPPPPPK.....',
+    '...KPPPLPPPPPPPPPPPK....', '...KPPPKKPPPPPPKKPPK....', '....KKKTTKKKKKKTTKKK....', '.....KTWWTK...KTWWTK....',
+    '.....KTWWTK...KTWWTK....', '......KTTK.....KTTK.....'] };
   const ICONS = { ko: [IC_SCREEN, IC_CAL, IC_HOUSE], ja: [IC_PIN, IC_SCREEN, IC_MAP] };
 
   function sprite(spr, s) {
@@ -234,5 +231,5 @@ window.TOMORANG_CONTENT = (function () {
   }
 
   const FLAGS = { kr: `<svg class="flag" viewBox="0 0 30 20" width="30" height="20" aria-hidden="true"><rect width="30" height="20" fill="#fff"/><g shape-rendering="crispEdges"><rect x="13" y="4" width="4" height="1" fill="#CD2E3A"/><rect x="12" y="5" width="6" height="1" fill="#CD2E3A"/><rect x="11" y="6" width="8" height="1" fill="#CD2E3A"/><rect x="10" y="7" width="10" height="1" fill="#CD2E3A"/><rect x="9" y="8" width="12" height="1" fill="#CD2E3A"/><rect x="9" y="9" width="9" height="1" fill="#CD2E3A"/><rect x="18" y="9" width="3" height="1" fill="#0047A0"/><rect x="9" y="10" width="6" height="1" fill="#CD2E3A"/><rect x="15" y="10" width="6" height="1" fill="#0047A0"/><rect x="9" y="11" width="3" height="1" fill="#CD2E3A"/><rect x="12" y="11" width="9" height="1" fill="#0047A0"/><rect x="9" y="12" width="12" height="1" fill="#0047A0"/><rect x="10" y="13" width="10" height="1" fill="#0047A0"/><rect x="11" y="14" width="8" height="1" fill="#0047A0"/><rect x="12" y="15" width="6" height="1" fill="#0047A0"/><rect x="13" y="16" width="4" height="1" fill="#0047A0"/></g><g transform="rotate(-33 6 5.0)"><rect x="3" y="2.5" width="6" height="1" fill="#000"/><rect x="3" y="4.5" width="6" height="1" fill="#000"/><rect x="3" y="6.5" width="6" height="1" fill="#000"/></g><g transform="rotate(33 24 5.0)"><rect x="21" y="2.5" width="2.5" height="1" fill="#000"/><rect x="24.5" y="2.5" width="2.5" height="1" fill="#000"/><rect x="21" y="4.5" width="6" height="1" fill="#000"/><rect x="21" y="6.5" width="2.5" height="1" fill="#000"/><rect x="24.5" y="6.5" width="2.5" height="1" fill="#000"/></g><g transform="rotate(33 6 15.0)"><rect x="3" y="12.5" width="6" height="1" fill="#000"/><rect x="3" y="14.5" width="2.5" height="1" fill="#000"/><rect x="6.5" y="14.5" width="2.5" height="1" fill="#000"/><rect x="3" y="16.5" width="6" height="1" fill="#000"/></g><g transform="rotate(-33 24 15.0)"><rect x="21" y="12.5" width="2.5" height="1" fill="#000"/><rect x="24.5" y="12.5" width="2.5" height="1" fill="#000"/><rect x="21" y="14.5" width="2.5" height="1" fill="#000"/><rect x="24.5" y="14.5" width="2.5" height="1" fill="#000"/><rect x="21" y="16.5" width="2.5" height="1" fill="#000"/><rect x="24.5" y="16.5" width="2.5" height="1" fill="#000"/></g></svg>`, jp: `<svg class="flag" viewBox="0 0 30 20" width="30" height="20" aria-hidden="true" shape-rendering="crispEdges"><rect width="30" height="20" fill="#fff"/><rect x="13" y="4" width="4" height="1" fill="#BC002D"/><rect x="12" y="5" width="6" height="1" fill="#BC002D"/><rect x="11" y="6" width="8" height="1" fill="#BC002D"/><rect x="10" y="7" width="10" height="1" fill="#BC002D"/><rect x="9" y="8" width="12" height="1" fill="#BC002D"/><rect x="9" y="9" width="12" height="1" fill="#BC002D"/><rect x="9" y="10" width="12" height="1" fill="#BC002D"/><rect x="9" y="11" width="12" height="1" fill="#BC002D"/><rect x="9" y="12" width="12" height="1" fill="#BC002D"/><rect x="10" y="13" width="10" height="1" fill="#BC002D"/><rect x="11" y="14" width="8" height="1" fill="#BC002D"/><rect x="12" y="15" width="6" height="1" fill="#BC002D"/><rect x="13" y="16" width="4" height="1" fill="#BC002D"/></svg>` };
-  return { T, MISSIONS, INTEREST_CODES, TYPE_CODES, SPR: { CH_A, CH_B, JESSE, MAIL, ICONS }, sprite, FLAGS };
+  return { T, MISSIONS, INTEREST_CODES, TYPE_CODES, SPR: { CH_A, CH_B, JESSE, MAIL, ICONS, BIKE }, sprite, FLAGS };
 })();
