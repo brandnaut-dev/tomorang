@@ -101,7 +101,7 @@
       </div>`) + `
       <div class="kpis">
         <div class="kpi fr3"><b>${rows.length}</b><span>전체 신청</span></div>
-        <div class="kpi fr3 lime"><b>${bike}</b><span>바이크 이동 OK</span></div>
+        <div class="kpi fr3 lime"><b>${bike}</b><span>스쿠터 이동 OK</span></div>
         <div class="kpi fr3"><b>${todayN}</b><span>오늘 신청</span></div>
         <div class="kpi fr3"><b>${week}</b><span>최근 7일</span></div>
         <div class="kpi fr3"><b>${langJa}</b><span>일본어 화면으로 신청</span></div>
@@ -119,7 +119,7 @@
           </div>
         </div>
         <div class="tbl-wrap"><table>
-          <thead><tr><th>#</th><th>신청 시각</th><th>이메일</th><th>바이크</th><th>관심사</th><th>희망 월</th><th>희망 주말</th><th>언어</th><th>동의</th><th></th></tr></thead>
+          <thead><tr><th>#</th><th>신청 시각</th><th>이메일</th><th>스쿠터</th><th>관심사</th><th>희망 월</th><th>희망 주말</th><th>언어</th><th>동의</th><th></th></tr></thead>
           <tbody>${list.length ? list.map((r, i) => `<tr data-id="${esc(r.id)}">
             <td class="muted">${list.length - i}</td>
             <td>${esc(fmtDT(r.createdAt))}</td>
