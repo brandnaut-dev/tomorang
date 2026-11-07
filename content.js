@@ -38,10 +38,7 @@ window.TOMORANG_CONTENT = (function () {
         { file: 'ttukseom-sunset.jpg', cat: 'place', label: '뚝섬 한강공원 노을', alt: '노을 진 한강과 다리 아래 풍경' },
         { file: 'namsan-view.jpg', cat: 'place', label: '남산타워가 보이는 전망', alt: '돌조각 너머로 보이는 남산과 N서울타워' },
         { file: 'namsan-tower-hangangdaero.jpg', cat: 'place', label: '한강대로에서 본 남산타워', alt: '저녁 하늘의 N서울타워와 한강대로 신호등' },
-        { file: 'ddp.jpg', cat: 'place', label: 'DDP 앞 사거리', alt: '카페 창가에서 내려다본 동대문 DDP 앞 사거리와 건물들' },
-        { file: 'naksan-cafe.jpg', cat: 'together', label: '낙산 카페에서 본 서울', alt: '낙산 위 카페에서 본 노을 진 서울 시내와 남산타워' },
-        { file: 'night-alley.jpg', cat: 'place', label: '밤 골목', alt: '밤에 불 켜진 동네 골목과 작은 가게들' },
-        { file: 'ikseon-cafe.jpg', cat: 'together', label: '익선동 카페', alt: '익선동 카페 창 너머로 보이는 한옥 지붕' }
+        { file: 'night-alley.jpg', cat: 'place', label: '밤 골목', alt: '밤에 불 켜진 동네 골목과 작은 가게들' }
       ],
       missionTitle: '대화 미션 카드', missionNote: '모두 완료해야 하는 과제가 아니라, 대화가 필요할 때 골라 쓰는 카드예요.',
       open: '펼치기', fold: '접기',
@@ -54,7 +51,13 @@ window.TOMORANG_CONTENT = (function () {
       jIntro: '안녕하세요, Jesse예요.\n서울에 있는 대학교 4학년에 재학하며 AI 서비스 창업을 하고 있어요. 서울 곳곳을 여행하듯 다닌 지 7년이 됐어요.\n평소에는 일을 많이 하고, 책 읽을 곳을 찾아다니거나 서울의 여러 동네를 돌아봐요.\n특히 남영역 주변과 용산을 좋아해요. 지금의 서울다운 모습과 오래된 도시의 흔적을 함께 만날 수 있거든요. 제가 좋아하게 된 장소와 그 이유를 함께 나누고 싶어요.',
       jLangBody: '한국어와 영어로 대화할 수 있어요. 일본어는 공부 중이에요. 서로 아는 표현을 알려주고, 말이 막힐 때는 번역기도 함께 사용해요.',
       jAlbum: 'JESSE가 직접 찍은 동네', jPhotoPending: 'Jesse 촬영 사진 준비 중',
-      jPhotos: [{ file: 'jesse-lp-cafe.jpg', label: '동네 LP 카페', alt: '동네 LP 카페의 턴테이블' }, { file: 'jesse-yongsan-cherry.jpg', label: '용산 벚꽃', alt: '용산 거리의 활짝 핀 벚꽃' }],
+      jPhotos: [
+        { file: 'jesse-lp-cafe.jpg', label: '동네 LP 카페', alt: '동네 LP 카페의 턴테이블' },
+        { file: 'naksan-cafe.jpg', label: '낙산 카페에서 본 서울', alt: '낙산 위 카페에서 본 노을 진 서울 시내와 남산타워' },
+        { file: 'ikseon-cafe.jpg', label: '익선동 카페', alt: '익선동 카페 창 너머로 보이는 한옥 지붕' },
+        { file: 'ddp.jpg', label: 'DDP가 보이는 카페', alt: '카페 창가에서 내려다본 동대문 DDP 앞 사거리' },
+        { file: 'jesse-yongsan-cherry.jpg', label: '용산 벚꽃', alt: '용산 거리의 활짝 핀 벚꽃' }
+      ],
       faqTitle: '만나기 전에 궁금한 것들',
       faqs: [
         { q: '일본어나 한국어를 잘해야 하나요?', a: '유창하지 않아도 괜찮아요. 아는 표현으로 이야기하고, 말이 막히면 번역기를 사용해요. 미션 카드도 대화를 시작하는 데 도움이 돼요. Jesse는 한국어와 영어로 대화할 수 있고, 일본어는 공부 중이에요.' },
@@ -129,10 +132,7 @@ window.TOMORANG_CONTENT = (function () {
         { file: 'ttukseom-sunset.jpg', cat: 'place', label: 'トゥクソム漢江公園の夕焼け', alt: '夕焼けの漢江と橋の下の風景' },
         { file: 'namsan-view.jpg', cat: 'place', label: '南山タワーが見える展望', alt: '石像の向こうに見える南山とNソウルタワー' },
         { file: 'namsan-tower-hangangdaero.jpg', cat: 'place', label: '漢江大路から見た南山タワー', alt: '夕方の空のNソウルタワーと漢江大路の信号機' },
-        { file: 'ddp.jpg', cat: 'place', label: 'DDP前の交差点', alt: 'カフェの窓から見下ろした東大門DDP前の交差点とビル' },
-        { file: 'naksan-cafe.jpg', cat: 'together', label: '駱山のカフェから見たソウル', alt: '駱山の上のカフェから見た夕焼けのソウル市街と南山タワー' },
-        { file: 'night-alley.jpg', cat: 'place', label: '夜の路地', alt: '夜に明かりがともる町の路地と小さなお店' },
-        { file: 'ikseon-cafe.jpg', cat: 'together', label: '益善洞のカフェ', alt: '益善洞のカフェの窓越しに見える韓屋の屋根' }
+        { file: 'night-alley.jpg', cat: 'place', label: '夜の路地', alt: '夜に明かりがともる町の路地と小さなお店' }
       ],
       missionTitle: '会話ミッションカード', missionNote: '全部こなす課題ではなく、会話のきっかけが欲しいときに選んで使うカードです。',
       open: 'ひらく', fold: 'とじる',
@@ -145,7 +145,13 @@ window.TOMORANG_CONTENT = (function () {
       jIntro: 'はじめまして、Jesseです。\nソウルの大学に通う4年生で、AIサービスの事業に取り組んでいます。ソウルのあちこちを旅するように歩いて7年になります。\n普段は仕事をしたり、本を読む場所を探したり、ソウルのいろいろな街を歩いたりしています。\n特に好きなのは、南営駅周辺と龍山。今のソウルらしさと、昔からの街の面影が一緒に感じられるからです。お気に入りの場所と、その場所を好きになった理由を一緒にお伝えします。',
       jLangBody: '韓国語と英語で会話できます。日本語は勉強中です。お互いに知っている表現を教え合い、必要なときは翻訳アプリも使いましょう。',
       jAlbum: 'JESSEが撮った街', jPhotoPending: 'Jesse撮影の写真 準備中',
-      jPhotos: [{ file: 'jesse-lp-cafe.jpg', label: '町のLPカフェ', alt: '町のLPカフェのターンテーブル' }, { file: 'jesse-yongsan-cherry.jpg', label: '龍山の桜', alt: '龍山の通りに咲く満開の桜' }],
+      jPhotos: [
+        { file: 'jesse-lp-cafe.jpg', label: '町のLPカフェ', alt: '町のLPカフェのターンテーブル' },
+        { file: 'naksan-cafe.jpg', label: '駱山のカフェから見たソウル', alt: '駱山の上のカフェから見た夕焼けのソウル市街と南山タワー' },
+        { file: 'ikseon-cafe.jpg', label: '益善洞のカフェ', alt: '益善洞のカフェの窓越しに見える韓屋の屋根' },
+        { file: 'ddp.jpg', label: 'DDPが見えるカフェ', alt: 'カフェの窓から見下ろした東大門DDP前の交差点' },
+        { file: 'jesse-yongsan-cherry.jpg', label: '龍山の桜', alt: '龍山の通りに咲く満開の桜' }
+      ],
       faqTitle: '参加する前に、知っておきたいこと',
       faqs: [
         { q: '韓国語が話せなくても参加できますか？', a: '流暢に話せなくても大丈夫です。知っている言葉や翻訳アプリを使いながら交流しましょう。会話のきっかけになるミッションカードも用意します。Jesseは韓国語と英語で会話でき、日本語は勉強中です。' },
