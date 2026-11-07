@@ -162,7 +162,7 @@
 
   // ---- 예시 데이터 (화면 확인용) ----
   function demo() {
-    const now = Date.now(), mk = (i, email, type, interests, months, weekends, undecided, lang) => ({ id: 'demo-' + i, createdAt: new Date(now - i * 5.3e6).toISOString(), email, type, interests, months, weekends, undecided, lang, consentVersion: CFG.CONSENT_VERSION || '2026-10-15' });
+    const now = Date.now(), mk = (i, email, type, interests, months, weekends, undecided, lang) => ({ id: 'demo-' + i, createdAt: new Date(now - i * 5.3e6).toISOString(), email, type, bike: i % 2 === 1 ? 'TRUE' : 'FALSE', interests, months, weekends, undecided, lang, consentVersion: CFG.CONSENT_VERSION || '2026-10-15' });
     return {
       rows: [
         mk(1, 'example.kim@example.com', 'korean_student', 'cafe,walk', '2026-11,2026-12', '2026-11-07,2026-11-21', 'FALSE', 'ko'),
