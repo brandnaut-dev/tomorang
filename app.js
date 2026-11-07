@@ -77,7 +77,7 @@
     <div class="bubble" style="bottom:150px;left:calc(var(--cx) + 92px);background:#F2AFE8;--delay:1.2s">${esc(tt.bubbleB)}</div>
     <div class="grass"></div>
     <div class="road"><i></i></div>
-    <div class="bike-run">${sprite(SPR.BIKE, 4)}</div>`;
+    <div class="bike-run">${sprite(SPR.RIDER, 4)}</div>`;
   }
   const edge = (from, to) => `<div class="edge" aria-hidden="true" style="background:linear-gradient(90deg,${from} 75%,transparent 0) 0 0/32px 8px repeat-x,linear-gradient(90deg,${from} 25%,transparent 0) 0 8px/32px 8px repeat-x,${to}"></div>`;
   const ctaBtn = (cls) => `<button type="button" class="btn ${cls}" data-open>` + `<span class="sq" aria-hidden="true"></span>${esc(t().cta)}</button>`;
@@ -263,7 +263,7 @@ ${edge('#DFF1FF', '#BBDDF4')}
     <div style="bottom:72px;left:calc(50% + 16px)">${sprite(SPR.CH_B, 4)}</div>
     <div class="grass"></div>
     <div class="road"><i></i></div>
-    <div class="bike-run rev">${sprite(SPR.BIKE, 4)}</div>
+    <div class="bike-run rev">${sprite(SPR.RIDER, 4)}</div>
   </div>
 </section>
 
@@ -447,7 +447,10 @@ ${edge('#DFF1FF', '#BBDDF4')}
     document.body.classList.toggle('motion', !reduce);
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver(es => es.forEach(x => x.target.style.animationPlayState = x.isIntersecting ? 'running' : 'paused'), { rootMargin: '80px' });
-      $$('.cloud,.person,.bubble,.bike-run').forEach(el => io.observe(el));
+      $$('.cloud,.person,.bubble').forEach(el => io.observe(el));
+      // 스쿠터는 화면 밖에서 출발하므로 도로(부모)가 보일 때 달리게 한다
+      const io2 = new IntersectionObserver(es => es.forEach(x => $$('.bike-run', x.target).forEach(b => b.style.animationPlayState = x.isIntersecting ? 'running' : 'paused')), { rootMargin: '80px' });
+      $$('.land,.endland').forEach(el => io2.observe(el));
     }
   }
 

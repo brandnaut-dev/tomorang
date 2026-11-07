@@ -47,11 +47,11 @@ h1,h2,h3,p{margin:0}
 body.motion .cloud{animation:tmrDrift var(--dur,40s) steps(18) var(--delay,0s) infinite alternate}
 body.motion .person{animation:tmrBob 1.6s steps(2) var(--delay,0s) infinite}
 body.motion .bubble{animation:tmrPop 6s steps(4) var(--delay,0s) infinite}
-.bike-run{position:absolute;left:0;bottom:12px;z-index:2;transform:translateX(20vw)}
-body.motion .bike-run{animation:tmrRide 18s linear infinite}
+.bike-run{position:absolute;left:0;bottom:8px;z-index:2;transform:translateX(20vw)}
+body.motion .bike-run{animation:tmrRide 14s linear infinite}
 body.motion .bike-run .spr{animation:tmrWheel .5s steps(2) infinite}
 .bike-run.rev .spr{transform:scaleX(-1)}
-body.motion .bike-run.rev{animation-direction:reverse;animation-duration:22s}
+body.motion .bike-run.rev{animation-direction:reverse;animation-duration:17s}
 .jesse-bike{margin-left:auto;align-self:flex-end;flex:none}
 .bike-chip{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:8px 14px 8px 10px;text-align:left}
 .bike-ico{display:inline-flex;flex:none}
